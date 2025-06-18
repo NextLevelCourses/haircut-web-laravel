@@ -14,7 +14,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Oswald:wght@600&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -33,7 +34,8 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -42,7 +44,8 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn"
+        data-wow-delay="0.1s">
         <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
             <h1 class="mb-0 text-primary text-uppercase"><i class="fa fa-cut me-3"></i>The shortcut</h1>
         </a>
@@ -66,15 +69,16 @@
                 <a href="service.html" class="nav-item nav-link">About Us</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i class="fa fa-arrow-left me-3"></i> Sign Up</a>
-            <a href="" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3">Sign In<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i
+                    class="fa fa-arrow-left me-3"></i> Sign Up</a>
+            <a href="" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3">Sign In<i
+                    class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
 
 
     <!-- Carousel Start -->
-     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -82,9 +86,12 @@
                     <img class="w-100" src="{{ asset('assets/img/carousel-1.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
                         <div class="mx-sm-5 px-5" style="max-width: 900px;">
-                            <h1 class="display-2 text-white text-uppercase mb-4 animated slideInDown">We Will Keep You An Awesome Look</h1>
-                            <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, Aussie</h4>
-                            <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</h4>
+                            <h1 class="display-2 text-white text-uppercase mb-4 animated slideInDown">We Will Keep You
+                                An Awesome Look</h1>
+                            <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i
+                                    class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, Aussie</h4>
+                            <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i
+                                    class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</h4>
                         </div>
                     </div>
                 </div>
@@ -92,9 +99,12 @@
                     <img class="w-100" src="{{ asset('assets/img/carousel-2.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
                         <div class="mx-sm-5 px-5" style="max-width: 900px;">
-                            <h1 class="display-2 text-white text-uppercase mb-4 animated slideInDown">The shortcut Haircut at Affordable Price</h1>
-                            <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, Aussie</h4>
-                            <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</h4>
+                            <h1 class="display-2 text-white text-uppercase mb-4 animated slideInDown">The shortcut
+                                Haircut at Affordable Price</h1>
+                            <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i
+                                    class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, Aussie</h4>
+                            <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i
+                                    class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</h4>
                         </div>
                     </div>
                 </div>
@@ -120,7 +130,8 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column">
-                        <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}" alt="">
+                        <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}"
+                            alt="">
                         <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
                             <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
                             <h2 class="text-uppercase mb-0">Experience</h2>
@@ -130,16 +141,21 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
                     <h1 class="text-uppercase mb-4">More Than Just A Haircut. Learn More About Us!</h1>
-                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.</p>
+                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
+                        erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam
+                        rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor
+                        eos.</p>
                     <div class="row g-4">
                         <div class="col-md-6">
                             <h3 class="text-uppercase mb-3">Since 1990</h3>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.</p>
+                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
+                                amet diam et eos.</p>
                         </div>
                         <div class="col-md-6">
                             <h3 class="text-uppercase mb-3">1000+ clients</h3>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.</p>
+                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
+                                amet diam et eos.</p>
                         </div>
                     </div>
                 </div>
@@ -159,7 +175,8 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
                             <img class="img-fluid" src="{{ asset('assets/img/haircut.png') }}" alt="">
                         </div>
                         <div class="ps-4">
@@ -172,7 +189,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
                             <img class="img-fluid" src="{{ asset('assets/img/beard-trim.png') }}" alt="">
                         </div>
                         <div class="ps-4">
@@ -185,7 +203,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
                             <img class="img-fluid" src="{{ asset('assets/img/mans-shave.png') }}" alt="">
                         </div>
                         <div class="ps-4">
@@ -198,7 +217,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
                             <img class="img-fluid" src="{{ asset('assets/img/hair-dyeing.png') }}" alt="">
                         </div>
                         <div class="ps-4">
@@ -211,7 +231,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
                             <img class="img-fluid" src="{{ asset('assets/img/mustache.png') }}" alt="">
                         </div>
                         <div class="ps-4">
@@ -224,7 +245,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
                             <img class="img-fluid" src="{{ asset('assets/img/stacking.png') }}" alt="">
                         </div>
                         <div class="ps-4">
@@ -421,22 +443,31 @@
                 <h1 class="text-uppercase">What Our Clients Say!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='{{ asset('assets/img/testimonial-1.jpg') }}' alt=''>">
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid' src='{{ asset('assets/img/testimonial-1.jpg') }}' alt=''>">
                     <h4 class="text-uppercase">Client Name</h4>
                     <p class="text-primary">Profession</p>
-                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</span>
+                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore
+                        sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at
+                        rebum justo sea clita.</span>
                 </div>
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='{{ asset('assets/img/testimonial-2.jpg') }}' alt=''>">
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid' src='{{ asset('assets/img/testimonial-2.jpg') }}' alt=''>">
                     <h4 class="text-uppercase">Client Name</h4>
                     <p class="text-primary">Profession</p>
-                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</span>
+                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore
+                        sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at
+                        rebum justo sea clita.</span>
                 </div>
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='{{ asset('assets/img/testimonial-3.jpg') }}' alt=''>">
+                <div class="testimonial-item text-center"
+                    data-dot="<img class='img-fluid' src='{{ asset('assets/img/testimonial-3.jpg') }}' alt=''>">
                     <h4 class="text-uppercase">Client Name</h4>
                     <p class="text-primary">Profession</p>
-                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</span>
+                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore
+                        sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at
+                        rebum justo sea clita.</span>
                 </div>
-            </div>      
+            </div>
         </div>
     </div>
     <!-- Testimonial End -->
@@ -478,14 +509,20 @@
                 <div class="col-lg-4 col-md-6">
                     <h4 class="text-uppercase mb-4">Newsletter</h4>
                     <div class="position-relative mb-4">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text"
+                            placeholder="Your email">
+                        <button type="button"
+                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                     </div>
                     <div class="d-flex pt-1 m-n1">
-                        <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
