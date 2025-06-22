@@ -9,7 +9,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
                 <a href="book.html" class="nav-item nav-link">Book</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
@@ -24,9 +24,9 @@
                 <a href="service.html" class="nav-item nav-link">About Us</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i
+            <a href="{{ url('/register') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i
                     class="fa fa-arrow-left me-3"></i> Sign Up</a>
-            <a href="" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3">Sign In<i
+            <a href="{{ url('/login') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3">Sign In<i
                     class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
