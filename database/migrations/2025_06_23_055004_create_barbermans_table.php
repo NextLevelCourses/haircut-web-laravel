@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('rating')->default(0);
             $table->integer('no_hp')->unique();
             $table->string('email')->unique();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->timestamps();
         });
     }
