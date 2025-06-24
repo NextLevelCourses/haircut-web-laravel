@@ -10,19 +10,11 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
-                <a href="book.html" class="nav-item nav-link">Book</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="price.html" class="dropdown-item">Haircaut</a>
-                        <a href="team.html" class="dropdown-item">Coloring</a>
-                        <a href="open.html" class="dropdown-item">Smoothing</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    </div>
-                </div>
-                <a href="service.html" class="nav-item nav-link">Barber Man</a>
-                <a href="service.html" class="nav-item nav-link">About Us</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="{{ url('/login') }}" class="nav-item nav-link">Book</a>
+                <a href="#services" class="nav-item nav-link">Service</a>
+                <a href="#barberman" class="nav-item nav-link">Barber Man</a>
+                <a href="#aboutus" class="nav-item nav-link">About Us</a>
+                <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
             <a href="{{ url('/register') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i
                     class="fa fa-arrow-left me-3"></i> Sign Up</a>
