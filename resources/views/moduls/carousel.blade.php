@@ -68,52 +68,68 @@
 
     <!-- About Start -->
     <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column">
-                        <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}"
-                            alt="">
-                        <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
-                            <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
-                            <h2 class="text-uppercase mb-0">Experience</h2>
-                        </div>
+    <div id="aboutus" class="container">
+        <div class="row g-5">
+            <!-- Gambar & Pengalaman -->
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex flex-column">
+                    <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}" alt="">
+                    <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
+                        <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
+                        <h2 class="text-uppercase mb-0">Experience</h2>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
-                    <h1 class="text-uppercase mb-4">More Than Just A Haircut. Learn More About Us!</h1>
-                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-                        erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam
-                        rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor
-                        eos.</p>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h3 class="text-uppercase mb-3">Since 1990</h3>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                                amet diam et eos.</p>
+            </div>
+
+            <!-- Konten About -->
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
+                <h1 class="text-uppercase mb-4">A Comfortable Place to Redefine Your Style</h1>
+                <p>Kami adalah barbershop dengan sentuhan modern dan nuansa klasik. Dengan tempat yang bersih, nyaman, serta barber yang profesional, kami hadir untuk memberi pengalaman cukur rambut terbaik.</p>
+                <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p>
+
+                <!-- Statistik dan rating -->
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <h3 class="text-uppercase mb-3">Since 1998</h3>
+                        <p class="mb-0">Telah melayani ribuan pelanggan dengan konsistensi dan kualitas tinggi.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-uppercase mb-3">1.500+ Happy Clients</h3>
+                        <p class="mb-0">Banyak pelanggan yang kembali secara rutin dan memberikan testimoni positif.</p>
+                    </div>
+                </div>
+
+                <!-- Rating -->
+                <div class="mt-4">
+                    <h5 class="text-uppercase mb-2">Customer Rating</h5>
+                    <div class="d-flex align-items-center">
+                        <div class="text-warning me-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-alt"></i>
                         </div>
-                        <div class="col-md-6">
-                            <h3 class="text-uppercase mb-3">1000+ clients</h3>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                                amet diam et eos.</p>
-                        </div>
+                        <span class="text-light">(4.7 / 5.0 based on 320 reviews)</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
     <!-- About End -->
 
 
     <!-- Service Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div id="services" class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <p class="d-inline-block bg-secondary text-primary py-1 px-4">Services</p>
                 <h1 class="text-uppercase">What We Provide</h1>
             </div>
+        </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
@@ -207,7 +223,7 @@
 
     <!-- Price Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div  class="container">
             <div class="row g-0">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="bg-secondary h-100 d-flex flex-column justify-content-center p-5">
@@ -254,7 +270,7 @@
 
     <!-- Team Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div id="barberman" class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <p class="d-inline-block bg-secondary text-primary py-1 px-4">Our Barber</p>
                 <h1 class="text-uppercase">Meet Our Barber</h1>

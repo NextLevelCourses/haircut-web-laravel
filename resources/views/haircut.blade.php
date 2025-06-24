@@ -167,11 +167,12 @@
 
     <!-- Service Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div id="services" class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <p class="d-inline-block bg-secondary text-primary py-1 px-4">Services</p>
                 <h1 class="text-uppercase">What We Provide</h1>
             </div>
+        </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
