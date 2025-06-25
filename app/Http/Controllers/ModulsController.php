@@ -50,4 +50,19 @@ class ModulsController extends Controller
     {
         return view('moduls.register');
     }
+
+    public function invoice()
+    {
+        return view('moduls.invoice');
+    }
+
+    public function history()
+    {
+        return view('moduls.history');
+    }
+
+    public function testimoni()
+    {
+        return view('moduls.testimoni');
+    }
 }

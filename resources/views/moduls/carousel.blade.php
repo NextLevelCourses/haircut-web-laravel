@@ -99,21 +99,6 @@
                         <p class="mb-0">Banyak pelanggan yang kembali secara rutin dan memberikan testimoni positif.</p>
                     </div>
                 </div>
-
-                <!-- Rating -->
-                <div class="mt-4">
-                    <h5 class="text-uppercase mb-2">Customer Rating</h5>
-                    <div class="d-flex align-items-center">
-                        <div class="text-warning me-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-alt"></i>
-                        </div>
-                        <span class="text-light">(4.7 / 5.0 based on 320 reviews)</span>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -429,4 +414,87 @@
         </div>
     </div>
     <!-- Testimonial End -->
+
+    <!-- Contact Form Start -->
+    <div class="container-xxl py-5">
+    <div id="contact" class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <p class="d-inline-block bg-secondary text-primary py-1 px-4">Hubungi Kami</p>
+            <h1 class="text-uppercase">Kirim Pesan</h1>
+            <p class="text-muted">Masukkan email dan pesan yang ingin Anda kirimkan.</p>
+        </div>
+
+        <!-- Kontak Info -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-6 text-center">
+                <p class="mb-2">
+                    <i class="bi bi-envelope text-primary me-2"></i>
+                    <strong>Email:</strong> hairshortcut@email.com
+                </p>
+                <p class="mb-2">
+                    <i class="bi bi-whatsapp text-success me-2"></i>
+                    <strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Form & Google Maps Side by Side -->
+        <div class="row g-5 justify-content-center align-items-start">
+            <!-- Form -->
+            <div class="col-lg-6">
+                <form method="POST" action="#">
+                    @csrf
+                    <div class="mb-4">
+                        <input type="email" name="email" class="form-control bg-light border-0 px-4 py-3"
+                            placeholder="Alamat Email Anda" required style="color: #000;">
+                    </div>
+                    <div class="mb-4">
+                        <textarea name="message" class="form-control bg-light border-0 px-4 py-3"
+                            rows="6" placeholder="Tulis pesan Anda di sini..." required style="color: #000;"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary py-3 px-5 rounded-pill text-uppercase" type="submit">
+                            <i class="bi bi-send me-2"></i> Kirim Pesan
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Google Maps -->
+            <div class="col-lg-6">
+                <div class="rounded overflow-hidden shadow" style="height: 100%; min-height: 320px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31692.648032024063!2d106.8271533!3d-6.1753948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f6b4e9a61f%3A0x3027a76e352bd80!2sJakarta!5e0!3m2!1sen!2sid!4v1719300000000"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                <!-- Alert Success/Error -->
+                @if (session('success'))
+                    <div class="alert alert-success mt-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger mt-4">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Form End -->
     @endsection

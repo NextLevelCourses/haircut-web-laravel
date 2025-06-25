@@ -16,3 +16,6 @@ Route::get('/transconfirm', [ModulsController::class, 'transconfirm']);
 Route::get('/failtransconfirm', [ModulsController::class, 'failtransconfirm']);
 Route::get('/login', [ModulsController::class, 'login']);
 Route::get('/register', [ModulsController::class, 'register']);
+Route::get('/testimoni', [ModulsController::class, 'testimoni']);
+Route::get('/history', [ModulsController::class, 'history']);
+Route::get('/invoice', [ModulsController::class, 'invoice']);
