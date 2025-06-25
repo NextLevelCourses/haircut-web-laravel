@@ -1,16 +1,23 @@
 <?php
 
-namespace App\Models;
+namespace App\Src\Domain;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class UserDomain extends Authenticatable
 {
+    protected $table = 'users';
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
+
+    /**
+     * guard user
+     */
+
+    protected $guard = 'user';
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +28,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'no_hp',
+        'roles_id',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -42,6 +53,8 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
             'password' => 'hashed',
         ];
     }
