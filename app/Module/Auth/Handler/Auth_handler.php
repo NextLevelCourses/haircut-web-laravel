@@ -17,9 +17,14 @@ class Auth_handler implements Auth_interface
      * @return string
      * @description this method is focus handle login prosess
      */
-    public function Login()
+    public function UserLogin()
     {
-        return DoLogin(); // <- inject process login
+        return DoUserLogin(); // <- inject process login
+    }
+
+    public function AdminLogin()
+    {
+        return DoAdminLogin(); // <- inject process login
     }
 
     /**
@@ -27,8 +32,8 @@ class Auth_handler implements Auth_interface
      * @return string
      * @description this method is focus handle register prosess
      */
-    public function Register()
+    public function UserRegister()
     {
-        return DoRegister(); // <- inject prosess register
+        return DoUserRegister(); // <- inject prosess register
     }
 }

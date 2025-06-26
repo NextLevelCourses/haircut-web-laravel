@@ -2,14 +2,32 @@
 
 
 /**
- * ======================== login process ========================
+ * ======================== user login process ========================
  */
 
 
 /**
  * @method DoLogin
  */
-function DoLogin()
+function DoUserLogin()
+{
+    try {
+    } catch (\Exception $e) {
+        // Handle exception
+        return 'Error: ' . $e->getMessage();
+    }
+}
+
+
+/**
+ * ======================== admin login process ========================
+ */
+
+
+/**
+ * @method DoLogin
+ */
+function DoAdminLogin()
 {
     try {
     } catch (\Exception $e) {
@@ -21,14 +39,14 @@ function DoLogin()
 
 
 /**
- * ======================== regsiter process ========================
+ * ======================== user regsiter process ========================
  */
 
 
 /**
  * @method DoRegister
  */
-function DoRegister()
+function DoUserRegister()
 {
     try {
     } catch (\Exception $e) {
