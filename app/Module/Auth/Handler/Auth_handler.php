@@ -19,7 +19,7 @@ class Auth_handler implements Auth_interface
      */
     public function Login()
     {
-        return DoLogin(AUTH_LOGIN_PROCESS); // <- inject process login
+        return DoLogin(); // <- inject process login
     }
 
     /**
@@ -29,6 +29,6 @@ class Auth_handler implements Auth_interface
      */
     public function Register()
     {
-        return DoRegister(REGISTER_PROCESS); // <- inject prosess register
+        return DoRegister(); // <- inject prosess register
     }
 }

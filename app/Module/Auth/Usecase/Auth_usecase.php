@@ -5,7 +5,14 @@
  * ======================== login process ========================
  * @method DoLogin
  */
-function DoLogin() {}
+function DoLogin()
+{
+    try {
+    } catch (\Exception $e) {
+        // Handle exception
+        return 'Error: ' . $e->getMessage();
+    }
+}
 
 
 
