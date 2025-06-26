@@ -3,6 +3,10 @@
 
 /**
  * ======================== login process ========================
+ */
+
+
+/**
  * @method DoLogin
  */
 function DoLogin()
@@ -18,6 +22,17 @@ function DoLogin()
 
 /**
  * ======================== regsiter process ========================
+ */
+
+
+/**
  * @method DoRegister
  */
-function DoRegister() {}
+function DoRegister()
+{
+    try {
+    } catch (\Exception $e) {
+        // Handle exception
+        return 'Error: ' . $e->getMessage();
+    }
+}
