@@ -12,7 +12,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the landing page view.
      */
-    public function index(): View
+    public function Index(): View
     {
         return view('module.carousel');
     }
@@ -22,7 +22,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the service page view.
      */
-    public function service(): View
+    public function Service(): View
     {
         return view('module.service');
     }
@@ -32,7 +32,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the gender page view.
      */
-    public function gender(): View
+    public function Gender(): View
     {
         return view('module.gender');
     }
@@ -42,7 +42,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the barberman page view.
      */
-    public function barberman(): View
+    public function Barberman(): View
     {
         return view('module.barberman');
     }
@@ -52,7 +52,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the schedule page view.
      */
-    public function schedule(): View
+    public function Schedule(): View
     {
         return view('module.schedule');
     }
@@ -62,7 +62,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the transaction page view.
      */
-    public function transaction(): View
+    public function Transaction(): View
     {
         return view('module.transaction');
     }
@@ -72,7 +72,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the success_transaction page view.
      */
-    public function success_transaction(): View
+    public function SuccessTransaction(): View
     {
         return view('module.success_transaction');
     }
@@ -82,7 +82,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the failed_transaction page view.
      */
-    public function failed_transaction(): View
+    public function FailedTransaction(): View
     {
         return view('module.failed_transaction');
     }
@@ -92,7 +92,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the login page view.
      */
-    public function login(): View
+    public function ViewLogin(): View
     {
         return view('module.login');
     }
@@ -102,7 +102,7 @@ class Landing_handler implements Landing_interface
      * @return View
      * @description This method returns the register page view.
      */
-    public function register(): View
+    public function ViewRegister(): View
     {
         return view('module.register');
     }

@@ -6,14 +6,14 @@ use Illuminate\Contracts\View\View;
 
 interface Landing_interface
 {
-    public function index(): View;
-    public function service(): View;
-    public function gender(): View;
-    public function barberman(): View;
-    public function schedule(): View;
-    public function transaction(): View;
-    public function success_transaction(): View;
-    public function failed_transaction(): View;
-    public function login(): View;
-    public function register(): View;
+    public function Index(): View;
+    public function Service(): View;
+    public function Gender(): View;
+    public function Barberman(): View;
+    public function Schedule(): View;
+    public function Transaction(): View;
+    public function SuccessTransaction(): View;
+    public function FailedTransaction(): View;
+    public function ViewLogin(): View;
+    public function ViewRegister(): View;
 }
