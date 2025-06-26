@@ -13,22 +13,22 @@ use App\Module\Auth\Interface\Auth_interface;
 class Auth_handler implements Auth_interface
 {
     /**
-     * @method do_login
+     * @method Login
      * @return string
      * @description this method is focus handle login prosess
      */
-    public function DoLogin(): string
+    public function Login()
     {
-        return generate_session(AUTH_LOGIN_PROCESS); // <- inject process login
+        return DoLogin(AUTH_LOGIN_PROCESS); // <- inject process login
     }
 
     /**
-     * @method do_register
+     * @method Register
      * @return string
      * @description this method is focus handle register prosess
      */
-    public function DoRegister(): string
+    public function Register()
     {
-        return submit(REGISTER_PROCESS); // <- inject prosess register
+        return DoRegister(REGISTER_PROCESS); // <- inject prosess register
     }
 }
