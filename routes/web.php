@@ -1,5 +1,9 @@
 <?php
 
+<<<<<<< HEAD
+require base_path('app/Module/Landing/Routes/web.php');
+require base_path('app/Module/Auth/Routes/web.php');
+=======
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ModulsController;
 
@@ -19,3 +23,4 @@ Route::get('/register', [ModulsController::class, 'register']);
 Route::get('/testimoni', [ModulsController::class, 'testimoni']);
 Route::get('/history', [ModulsController::class, 'history']);
 Route::get('/invoice', [ModulsController::class, 'invoice']);
+>>>>>>> development

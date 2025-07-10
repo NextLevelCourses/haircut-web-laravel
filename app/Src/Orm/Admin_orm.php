@@ -1,16 +1,23 @@
 <?php
 
-namespace App\Models;
+namespace App\Src\Orm;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class Admin_orm extends Authenticatable
 {
+    protected $table = 'admins';
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
+
+    /**
+     * guard user
+     */
+
+    protected $guard = 'admin';
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +28,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'roles_id',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -28,10 +39,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ['password'];
 
     /**
      * Get the attributes that should be cast.
@@ -41,7 +49,8 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
             'password' => 'hashed',
         ];
     }
