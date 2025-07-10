@@ -51,7 +51,13 @@ class Auth_handler extends Auth_domain implements Auth_interface
             USER_REGISTRATION_MESSAGE
         );
         try {
-            return MainUserRegisterCase(); // <- inject prosess register user
+            MainUserRegisterCase(
+                $this->request->name,
+                $this->request->email,
+                $this->request->no_hp,
+                $this->request->password
+            ); // <- inject prosess register user
+            return redirect()->route(REDIRECT_ROUTE_LOGIN)->with('success', SUCCESS_REGISTER_MESSAGE);
         } catch (\Throwable $t) {
             return $t;
         }

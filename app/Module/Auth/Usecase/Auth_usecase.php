@@ -1,5 +1,8 @@
 <?php
 
+//import repository
+require base_path('app/Module/Auth/Repository/Auth_repository.php'); //constant
+
 
 /**
  * ======================== user login process ========================
@@ -45,13 +48,12 @@ function MainAdminLoginCase()
 
 /**
  * @method DoRegister
+ * @param $name
+ * @param $email
+ * @param $no_hp
+ * @param $password
  */
-function MainUserRegisterCase()
+function MainUserRegisterCase(string $name, string $email, string $no_hp, string $password): void
 {
-    try {
-        return 'Registration successful, please login here';
-    } catch (\Exception $e) {
-        // Handle exception
-        return 'Error: ' . $e->getMessage();
-    }
+    RepositoryUserSubmitRegistration($name, $email, $no_hp, $password); //submit registration data to handle by repository
 }

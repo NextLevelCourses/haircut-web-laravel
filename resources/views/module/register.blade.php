@@ -18,7 +18,7 @@
                             <div class="mb-3">
                                 <label for="name" class="form-label text-white text-uppercase">Name</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror border-0 py-3"
-                                    id="name" name="name" placeholder="Enter your name">
+                                    id="name" name="name" placeholder="Enter your name" value="{{ old('name') }}">
                                 @error('name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -30,7 +30,7 @@
                                 <label for="email" class="form-label text-white text-uppercase">Email</label>
                                 <input type="email"
                                     class="form-control @error('email') is-invalid @enderror border-0 py-3" id="email"
-                                    name="email" placeholder="Enter your email">
+                                    name="email" placeholder="Enter your email" value="{{ old('email') }}">
                                 @error('email')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -42,7 +42,7 @@
                                 <label for="phone" class="form-label text-white text-uppercase">Phone</label>
                                 <input type="number"
                                     class="form-control @error('no_hp') is-invalid @enderror border-0 py-3" id="no_hp"
-                                    name="no_hp" placeholder="Enter your phone number">
+                                    name="no_hp" placeholder="Enter your phone number" value="{{ old('no_hp') }}">
                                 @error('no_hp')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -53,8 +53,8 @@
                             <div class="mb-4">
                                 <label for="password" class="form-label text-white text-uppercase">Password</label>
                                 <input type="password"
-                                    class="form-control @error('no_hp') is-invalid @enderror border-0 py-3" id="password"
-                                    name="password" placeholder="Enter your password">
+                                    class="form-control @error('password') is-invalid @enderror border-0 py-3"
+                                    id="password" name="password" placeholder="Enter your password">
                                 @error('password')
                                     <div class="invalid-feedback">
                                         {{ $message }}

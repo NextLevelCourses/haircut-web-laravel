@@ -8,13 +8,13 @@ const REDIRECT_ROUTE_LOGIN = 'Landing.login';
 const USER_REGISTRATION_RULES = [
     'name' => 'required|string|min:4',
     'email' => 'required|email|unique:users,email',
-    'no_hp' => 'required|integer|min:12',
-    'password' => 'required|string|min:8|confirmed',
+    'no_hp' => 'required|numeric|min:12',
+    'password' => 'required|string|min:8',
 ];
 
 const USER_REGISTRATION_MESSAGE = [
-    'required' => 'The :attribute wajib di isi.',
-    'email' => 'The :attribute harus berupa email yang valid.',
-    'unique' => 'The :attribute sudah terdaftar.',
-    'min' => 'The :attribute harus memiliki minimal :min karakter.',
+    'required' => ':attribute wajib di isi.',
+    'email' => ':attribute harus berupa email yang valid.',
+    'unique' => ':attribute sudah terdaftar.',
+    'min' => ':attribute harus memiliki minimal :min karakter.',
 ];
