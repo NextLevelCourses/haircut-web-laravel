@@ -35,7 +35,7 @@ class Auth_handler extends Auth_domain implements Auth_interface
         return MainAdminLoginCase(); // <- inject process login admin
     }
 
-    public function ValidateRegistration($request, array $rules, array $message): void
+    public function HandlerValidateRegistration($request, array $rules, array $message): void
     {
         $request->validate($rules, $message);
     }
@@ -45,7 +45,7 @@ class Auth_handler extends Auth_domain implements Auth_interface
      */
     public function UserRegister()
     {
-        $this->ValidateRegistration(
+        $this->HandlerValidateRegistration(
             $this->request,
             USER_REGISTRATION_RULES,
             USER_REGISTRATION_MESSAGE
