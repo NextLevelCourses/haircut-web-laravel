@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('price')->default(0);
             $table->foreignId('services_id')->references('id')->on('services')->onDelete('cascade');
             $table->integer('rating')->default(0);
-            $table->integer('no_hp')->unique();
+            $table->string('no_hp')->unique();
             $table->string('email')->unique();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->timestamps();
