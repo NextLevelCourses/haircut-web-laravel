@@ -68,52 +68,53 @@
 
     <!-- About Start -->
     <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column">
-                        <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}"
-                            alt="">
-                        <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
-                            <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
-                            <h2 class="text-uppercase mb-0">Experience</h2>
-                        </div>
+    <div id="aboutus" class="container">
+        <div class="row g-5">
+            <!-- Gambar & Pengalaman -->
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex flex-column">
+                    <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}" alt="">
+                    <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
+                        <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
+                        <h2 class="text-uppercase mb-0">Experience</h2>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
-                    <h1 class="text-uppercase mb-4">More Than Just A Haircut. Learn More About Us!</h1>
-                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-                        erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam
-                        rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor
-                        eos.</p>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h3 class="text-uppercase mb-3">Since 1990</h3>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                                amet diam et eos.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="text-uppercase mb-3">1000+ clients</h3>
-                            <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                                amet diam et eos.</p>
-                        </div>
+            </div>
+
+            <!-- Konten About -->
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
+                <h1 class="text-uppercase mb-4">A Comfortable Place to Redefine Your Style</h1>
+                <p>Kami adalah barbershop dengan sentuhan modern dan nuansa klasik. Dengan tempat yang bersih, nyaman, serta barber yang profesional, kami hadir untuk memberi pengalaman cukur rambut terbaik.</p>
+                <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p>
+
+                <!-- Statistik dan rating -->
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <h3 class="text-uppercase mb-3">Since 1998</h3>
+                        <p class="mb-0">Telah melayani ribuan pelanggan dengan konsistensi dan kualitas tinggi.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-uppercase mb-3">1.500+ Happy Clients</h3>
+                        <p class="mb-0">Banyak pelanggan yang kembali secara rutin dan memberikan testimoni positif.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
     <!-- About End -->
 
 
     <!-- Service Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div id="services" class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <p class="d-inline-block bg-secondary text-primary py-1 px-4">Services</p>
                 <h1 class="text-uppercase">What We Provide</h1>
             </div>
+        </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
@@ -207,7 +208,7 @@
 
     <!-- Price Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div  class="container">
             <div class="row g-0">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="bg-secondary h-100 d-flex flex-column justify-content-center p-5">
@@ -254,7 +255,7 @@
 
     <!-- Team Start -->
     <div class="container-xxl py-5">
-        <div class="container">
+        <div id="barberman" class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <p class="d-inline-block bg-secondary text-primary py-1 px-4">Our Barber</p>
                 <h1 class="text-uppercase">Meet Our Barber</h1>
@@ -413,4 +414,87 @@
         </div>
     </div>
     <!-- Testimonial End -->
+
+    <!-- Contact Form Start -->
+    <div class="container-xxl py-5">
+    <div id="contact" class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <p class="d-inline-block bg-secondary text-primary py-1 px-4">Hubungi Kami</p>
+            <h1 class="text-uppercase">Kirim Pesan</h1>
+            <p class="text-muted">Masukkan email dan pesan yang ingin Anda kirimkan.</p>
+        </div>
+
+        <!-- Kontak Info -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-6 text-center">
+                <p class="mb-2">
+                    <i class="bi bi-envelope text-primary me-2"></i>
+                    <strong>Email:</strong> hairshortcut@email.com
+                </p>
+                <p class="mb-2">
+                    <i class="bi bi-whatsapp text-success me-2"></i>
+                    <strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Form & Google Maps Side by Side -->
+        <div class="row g-5 justify-content-center align-items-start">
+            <!-- Form -->
+            <div class="col-lg-6">
+                <form method="POST" action="#">
+                    @csrf
+                    <div class="mb-4">
+                        <input type="email" name="email" class="form-control bg-light border-0 px-4 py-3"
+                            placeholder="Alamat Email Anda" required style="color: #000;">
+                    </div>
+                    <div class="mb-4">
+                        <textarea name="message" class="form-control bg-light border-0 px-4 py-3"
+                            rows="6" placeholder="Tulis pesan Anda di sini..." required style="color: #000;"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary py-3 px-5 rounded-pill text-uppercase" type="submit">
+                            <i class="bi bi-send me-2"></i> Kirim Pesan
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Google Maps -->
+            <div class="col-lg-6">
+                <div class="rounded overflow-hidden shadow" style="height: 100%; min-height: 320px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31692.648032024063!2d106.8271533!3d-6.1753948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f6b4e9a61f%3A0x3027a76e352bd80!2sJakarta!5e0!3m2!1sen!2sid!4v1719300000000"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                <!-- Alert Success/Error -->
+                @if (session('success'))
+                    <div class="alert alert-success mt-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger mt-4">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Form End -->
     @endsection

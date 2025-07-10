@@ -26,9 +26,19 @@ class ModulsController extends Controller
         return view('moduls.jadwal');
     }
 
-    public function konfirmasi()
+    public function transaction()
     {
-        return view('moduls.konfirmasi');
+        return view('moduls.transaction');
+    }
+
+    public function transconfirm()
+    {
+        return view('moduls.transconfirm');
+    }
+
+    public function failtransconfirm()
+    {
+        return view('moduls.failtransconfirm');
     }
 
     public function login()
@@ -39,5 +49,20 @@ class ModulsController extends Controller
     public function register()
     {
         return view('moduls.register');
+    }
+
+    public function invoice()
+    {
+        return view('moduls.invoice');
+    }
+
+    public function history()
+    {
+        return view('moduls.history');
+    }
+
+    public function testimoni()
+    {
+        return view('moduls.testimoni');
     }
 }
