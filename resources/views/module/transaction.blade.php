@@ -32,18 +32,33 @@
 
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="bg-secondary text-white rounded-3 p-4 mb-4">
-                    <div class="row mb-3"><div class="col-6 fw-bold">Nama:</div><div class="col-6">John Doe</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">Email:</div><div class="col-6">john@example.com</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">No HP:</div><div class="col-6">0812xxxxxxx</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">Tanggal:</div><div class="col-6">24 Juni 2025</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">Jam:</div><div class="col-6">14:00 WIB</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">Gender:</div><div class="col-6">Laki-Laki</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">Service:</div><div class="col-6">Haircut + Coloring</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">Tipe:</div><div class="col-6">Paket Lengkap</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">Barberman:</div><div class="col-6">Rama</div></div>
-                    <div class="row mb-3"><div class="col-6 fw-bold">Harga:</div><div class="col-6">Rp150.000</div></div>
+            <div class="bg-secondary text-white rounded-3 p-4 mb-4">
+            <div class="row mb-3"><div class="col-6 fw-bold">Nama:</div><div class="col-6">John Doe</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">Email:</div><div class="col-6">john@example.com</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">No HP:</div><div class="col-6">0812xxxxxxx</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">Tanggal:</div><div class="col-6">24 Juni 2025</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">Jam:</div><div class="col-6">14:00 WIB</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">Gender:</div><div class="col-6">Laki-Laki</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">Service:</div><div class="col-6">Haircut + Coloring</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">Tipe:</div><div class="col-6">Paket Lengkap</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">Barberman:</div><div class="col-6">Rama</div></div>
+            <div class="row mb-3"><div class="col-6 fw-bold">Harga:</div><div class="col-6">Rp150.000</div></div>
+
+            <!-- Metode Pembayaran -->
+            <div class="row mb-3">
+                <div class="col-6 fw-bold">Metode Pembayaran:</div>
+                <div class="col-6">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="cash" value="Cash" checked>
+                        <label class="form-check-label" for="cash">Cash</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="debit" value="Debit">
+                        <label class="form-check-label" for="debit">Debit</label>
+                    </div>
                 </div>
+            </div>
+        </div>
 
                 <!-- Button Konfirmasi -->
                 <div class="text-center">

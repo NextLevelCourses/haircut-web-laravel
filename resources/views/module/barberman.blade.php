@@ -42,8 +42,8 @@
                         </div>
                     </div>
                     <div class="bg-secondary text-center p-4">
-                        <h5 class="text-uppercase mb-2">Barber {{ $i }}</h5>
-                        <span class="text-primary d-block mb-2">Senior Barber</span>
+                        <h5 class="text-uppercase mb-2">Tukang cukur {{ $i }}</h5>
+                        <span class="text-primary d-block mb-2">Junior Barber</span>
 
                         <!-- Rating -->
                         <div class="mb-2">
