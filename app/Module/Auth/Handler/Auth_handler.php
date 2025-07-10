@@ -7,10 +7,11 @@ namespace App\Module\Auth\Handler;
 require base_path('app/Module/Auth/Usecase/Auth_usecase.php'); //usecase
 require base_path('app/Module/Auth/Constant/Auth_constant.php'); //constant
 
-//implement type interface
+//implement type domain
+use App\Module\Auth\Domain\Auth_domain;
 use App\Module\Auth\Interface\Auth_interface;
 
-class Auth_handler implements Auth_interface
+class Auth_handler extends Auth_domain implements Auth_interface
 {
     /**
      * @method Login
@@ -18,7 +19,7 @@ class Auth_handler implements Auth_interface
      */
     public function UserLogin()
     {
-        return DoUserLogin(); // <- inject process login user
+        return MainUserLogin(); // <- inject process login user
     }
 
     /**
@@ -27,7 +28,7 @@ class Auth_handler implements Auth_interface
      */
     public function AdminLogin()
     {
-        return DoAdminLogin(); // <- inject process login admin
+        return MainAdminLogin(); // <- inject process login admin
     }
 
     /**
@@ -36,6 +37,6 @@ class Auth_handler implements Auth_interface
      */
     public function UserRegister()
     {
-        return DoUserRegister(); // <- inject prosess register user
+        return MainUserRegister(); // <- inject prosess register user
     }
 }

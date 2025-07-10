@@ -9,7 +9,7 @@
 /**
  * @method DoLogin
  */
-function DoUserLogin()
+function MainUserLogin()
 {
     try {
     } catch (\Exception $e) {
@@ -27,7 +27,7 @@ function DoUserLogin()
 /**
  * @method DoLogin
  */
-function DoAdminLogin()
+function MainAdminLogin()
 {
     try {
     } catch (\Exception $e) {
@@ -46,7 +46,7 @@ function DoAdminLogin()
 /**
  * @method DoRegister
  */
-function DoUserRegister()
+function MainUserRegister()
 {
     try {
     } catch (\Exception $e) {
