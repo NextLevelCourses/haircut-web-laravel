@@ -10,16 +10,20 @@ require base_path('app/Module/Auth/Constant/Auth_constant.php'); //constant
 //implement type domain
 use App\Module\Auth\Domain\Auth_domain;
 use App\Module\Auth\Interface\Auth_interface;
+use Illuminate\Http\Request;
 
 class Auth_handler extends Auth_domain implements Auth_interface
 {
+    public function __construct(
+        private Request $request,
+    ) {}
     /**
      * @method Login
      * @description this method is focus handle login prosess
      */
     public function UserLogin()
     {
-        return MainUserLogin(); // <- inject process login user
+        return MainUserLoginCase(); // <- inject process login user
     }
 
     /**
@@ -28,15 +32,28 @@ class Auth_handler extends Auth_domain implements Auth_interface
      */
     public function AdminLogin()
     {
-        return MainAdminLogin(); // <- inject process login admin
+        return MainAdminLoginCase(); // <- inject process login admin
     }
 
+    public function ValidateRegistration($request, array $rules, array $message): void
+    {
+        $request->validate($rules, $message);
+    }
     /**
      * @method Register
      * @description this method is focus handle register prosess
      */
     public function UserRegister()
     {
-        return MainUserRegister(); // <- inject prosess register user
+        $this->ValidateRegistration(
+            $this->request,
+            USER_REGISTRATION_RULES,
+            USER_REGISTRATION_MESSAGE
+        );
+        try {
+            return MainUserRegisterCase(); // <- inject prosess register user
+        } catch (\Throwable $t) {
+            return $t;
+        }
     }
 }

@@ -9,7 +9,7 @@
 /**
  * @method DoLogin
  */
-function MainUserLogin()
+function MainUserLoginCase()
 {
     try {
     } catch (\Exception $e) {
@@ -27,7 +27,7 @@ function MainUserLogin()
 /**
  * @method DoLogin
  */
-function MainAdminLogin()
+function MainAdminLoginCase()
 {
     try {
     } catch (\Exception $e) {
@@ -46,9 +46,10 @@ function MainAdminLogin()
 /**
  * @method DoRegister
  */
-function MainUserRegister()
+function MainUserRegisterCase()
 {
     try {
+        return 'Registration successful, please login here';
     } catch (\Exception $e) {
         // Handle exception
         return 'Error: ' . $e->getMessage();
