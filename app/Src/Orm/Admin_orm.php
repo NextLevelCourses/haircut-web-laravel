@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class UserDomain extends Authenticatable
+class Admin_orm extends Authenticatable
 {
-    protected $table = 'users';
+    protected $table = 'admins';
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
@@ -17,7 +17,7 @@ class UserDomain extends Authenticatable
      * guard user
      */
 
-    protected $guard = 'user';
+    protected $guard = 'admin';
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +28,7 @@ class UserDomain extends Authenticatable
         'name',
         'email',
         'password',
-        'no_hp',
+        'username',
         'roles_id',
         'created_at',
         'updated_at',
@@ -39,10 +39,7 @@ class UserDomain extends Authenticatable
      *
      * @var list<string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ['password'];
 
     /**
      * Get the attributes that should be cast.
@@ -52,7 +49,6 @@ class UserDomain extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'password' => 'hashed',
