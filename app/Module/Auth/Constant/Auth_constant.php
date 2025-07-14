@@ -3,12 +3,12 @@
 const SUCCESS_LOGIN_MESSAGE = 'Login successful';
 const SUCCESS_REGISTER_MESSAGE = 'Registration successful,please login here';
 
-const REDIRECT_ROUTE_LOGIN = 'Landing.login';
+const REDIRECT_ROUTE_LOGIN = 'user.login';
 
 const USER_REGISTRATION_RULES = [
     'name' => 'required|string|min:4',
     'email' => 'required|email|unique:users,email',
-    'no_hp' => 'required|numeric|min:12',
+    'no_hp' => 'required|numeric|min:12|unique:users,no_hp',
     'password' => 'required|string|min:8',
 ];
 

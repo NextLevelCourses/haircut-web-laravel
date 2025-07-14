@@ -17,13 +17,14 @@
 
                         <h2 class="text-uppercase text-center mb-4 text-white">Login</h2>
 
-                        <form action="{{ url('/login') }}" method="POST">
+                        <form action="{{ route('user.do_login') }}" method="POST">
                             @csrf
 
                             <div class="mb-3">
-                                <label for="email" class="form-label text-white text-uppercase">Email</label>
-                                <input type="email" class="form-control border-0 py-3" id="email" name="email"
-                                    placeholder="Enter your email" required>
+                                <label for="email" class="form-label text-white text-uppercase">Email/No
+                                    Handphone</label>
+                                <input type="email" class="form-control border-0 py-3" id="ephone" name="ephone"
+                                    placeholder="Enter your email or no handphone" required>
                             </div>
 
                             <div class="mb-4">
@@ -47,7 +48,7 @@
 
                         <p class="mt-4 text-white text-center">
                             Don't have an account?
-                            <a href="{{ url('/register') }}" class="text-primary">Register here</a>
+                            <a href="{{ route('user.register') }}" class="text-primary">Register here</a>
                         </p>
                     </div>
                 </div>
