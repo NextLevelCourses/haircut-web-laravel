@@ -5,6 +5,19 @@ const SUCCESS_REGISTER_MESSAGE = 'Registration successful,please login here';
 
 const REDIRECT_ROUTE_LOGIN = 'user.login';
 
+const REDIRECT_SUCCESS_LOGIN = '';
+
+const USER_LOGIN_RULES = [
+    'ephone' => 'required|string',
+    'password' => 'required|string|min:8',
+];
+
+const USER_LOGIN_MESSAGE = [
+    'ephone.required' => 'email atau nomor handphone wajib di isi.',
+    'password.required' => 'password wajib di isi.',
+    'min' => ':attribute harus memiliki minimal :min karakter.',
+];
+
 const USER_REGISTRATION_RULES = [
     'name' => 'required|string|min:4',
     'email' => 'required|email|unique:users,email',

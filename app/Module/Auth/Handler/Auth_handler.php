@@ -23,13 +23,27 @@ class Auth_handler extends Auth_domain implements Auth_interface
     {
         return view('module.login');
     }
+
+    public function HandlerValidateUserLogin($request, array $rules, array $message): void
+    {
+        $request->validate($rules, $message);
+    }
     /**
      * @method Login
      * @description this method is focus handle login prosess
      */
     public function UserLogin()
     {
-        return MainUserLoginCase(); // <- inject process login user
+        $this->HandlerValidateUserLogin(
+            $this->request,
+            USER_LOGIN_RULES,
+            USER_LOGIN_MESSAGE
+        );
+        try {
+            return MainUserLoginCase(); // <- inject process login user
+        } catch (\Throwable $t) {
+            return $t;
+        }
     }
 
     public function viewAdminLogin(): View
