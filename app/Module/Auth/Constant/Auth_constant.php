@@ -5,7 +5,9 @@ const SUCCESS_REGISTER_MESSAGE = 'Registration successful,please login here';
 
 const REDIRECT_ROUTE_LOGIN = 'user.login';
 
-const REDIRECT_SUCCESS_LOGIN = '';
+const REDIRECT_LANDING = 'Landing.index';
+const SUCCESS_LOGOUT_MESSAGE = 'Logout berhasil,silahkan login kembali';
+const ERROR_LOGOUT_MESSAGE = 'Logout gagal, silahkan coba lagi';
 
 const USER_LOGIN_RULES = [
     'ephone' => 'required|string',

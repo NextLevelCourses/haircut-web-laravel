@@ -11,7 +11,9 @@ require base_path('app/Module/Auth/Constant/Auth_constant.php'); //constant
 use App\Module\Auth\Domain\Auth_domain;
 use App\Module\Auth\Interface\Auth_interface;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Auth_handler extends Auth_domain implements Auth_interface
 {
@@ -41,14 +43,23 @@ class Auth_handler extends Auth_domain implements Auth_interface
         );
         try {
             return MainUserLoginCase(); // <- inject process login user
-        } catch (\Throwable $t) {
-            return $t;
+        } catch (\Exception $e) {
+            return $e;
         }
     }
 
     public function viewAdminLogin(): View
     {
         return view('module.adminLogin');
+    }
+
+    public function UserLogout(): RedirectResponse
+    {
+        try {
+            return Auth::guard('user')->logout() ? redirect()->route(REDIRECT_LANDING)->with('success', SUCCESS_LOGOUT_MESSAGE) : redirect()->route(REDIRECT_LANDING)->with('error', ERROR_LOGOUT_MESSAGE);
+        } catch (\Exception $e) {
+            return redirect()->route(REDIRECT_LANDING)->with('error', $e->getMessage());
+        }
     }
     /**
      * @method AdminLogin
