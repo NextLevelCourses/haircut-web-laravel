@@ -16,7 +16,7 @@ function RepositoryUserSubmitRegistration(string $name, string $email, string $n
     ]);
 }
 
-function HandlerValidateUserSessionLogout($request)
+function RepositoryValidateUserSessionLogout($request)
 {
     if (!Auth::guard('user')->check()) {
         MainLog('error', 'Anda tidak mempunyai session untuk logout', $request->route()->getName(), Auth::guard('user')->id());

@@ -31,7 +31,7 @@ function MainUserLoginCase()
 
 function MainUserLogoutCase($request)
 {
-    HandlerValidateUserSessionLogout($request);
+    RepositoryValidateUserSessionLogout($request);
     Auth::guard('user')->logout();
     MainLog('success', 'Anda berhasil logout', $request->route()->getName(), Auth::guard('user')->id());
 }
