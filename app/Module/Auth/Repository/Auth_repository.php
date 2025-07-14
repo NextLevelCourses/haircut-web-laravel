@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 function RepositoryUserSubmitRegistration(string $name, string $email, string $no_hp, string $password): void
 {
@@ -13,4 +14,12 @@ function RepositoryUserSubmitRegistration(string $name, string $email, string $n
         now(),  // Current timestamp for updated_at
         2
     ]);
+}
+
+function HandlerValidateUserSessionLogout($request)
+{
+    if (!Auth::guard('user')->check()) {
+        MainLog('error', 'Anda tidak mempunyai session untuk logout', $request->route()->getName(), Auth::guard('user')->id());
+        return redirect()->route(REDIRECT_LANDING)->with('error', ERROR_LOGOUT_MESSAGE);
+    }
 }

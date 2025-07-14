@@ -1,7 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 //import repository
 require base_path('app/Module/Auth/Repository/Auth_repository.php'); //constant
+require base_path('app/Src/Log/Logging.php'); //log
+
 
 
 /**
@@ -19,6 +23,17 @@ function MainUserLoginCase()
         // Handle exception
         return 'Error: ' . $e->getMessage();
     }
+}
+
+/**
+ * @method MainUserLogoutCase
+ */
+
+function MainUserLogoutCase($request)
+{
+    HandlerValidateUserSessionLogout($request);
+    Auth::guard('user')->logout();
+    MainLog('success', 'Anda berhasil logout', $request->route()->getName(), Auth::guard('user')->id());
 }
 
 

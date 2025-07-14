@@ -6,7 +6,6 @@ namespace App\Module\Auth\Handler;
 //import
 require base_path('app/Module/Auth/Usecase/Auth_usecase.php'); //usecase
 require base_path('app/Module/Auth/Constant/Auth_constant.php'); //constant
-require base_path('app/Src/Log/Logging.php'); //log
 
 //implement type domain
 use App\Module\Auth\Domain\Auth_domain;
@@ -14,7 +13,6 @@ use App\Module\Auth\Interface\Auth_interface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class Auth_handler extends Auth_domain implements Auth_interface
 {
@@ -57,14 +55,7 @@ class Auth_handler extends Auth_domain implements Auth_interface
     public function UserLogout(): RedirectResponse
     {
         try {
-
-            if (!Auth::guard('user')->check()) {
-                MainLog('error', 'Anda tidak mempunyai session untuk logout', $this->request->route()->getName(), Auth::guard('user')->id());
-                return redirect()->route(REDIRECT_LANDING)->with('error', ERROR_LOGOUT_MESSAGE);
-            }
-
-            Auth::guard('user')->logout();
-            MainLog('success', 'Anda berhasil logout', $this->request->route()->getName(), Auth::guard('user')->id());
+            MainUserLogoutCase($this->request);
             return redirect()->route(REDIRECT_LANDING)->with('success', SUCCESS_LOGOUT_MESSAGE);
         } catch (\Exception $e) {
             return redirect()->route(REDIRECT_LANDING)->with('error', $e->getMessage());
