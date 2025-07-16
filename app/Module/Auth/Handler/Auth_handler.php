@@ -29,10 +29,12 @@ class Auth_handler extends Auth_domain implements Auth_interface
     {
         $request->validate($rules, $message);
     }
-    /**
-     * @method Login
-     * @description this method is focus handle login prosess
-     */
+
+    public function HandlerRedirectLoginSuccess(string $MessageLoginSuccess): RedirectResponse
+    {
+        return redirect()->intended(REDIRECT_LOGIN_SUCCESS)->with('success', $MessageLoginSuccess);
+    }
+
     public function UserLogin()
     {
         $this->HandlerValidateUserLogin(
@@ -41,7 +43,7 @@ class Auth_handler extends Auth_domain implements Auth_interface
             USER_LOGIN_MESSAGE
         );
         try {
-            return MainUserLoginCase(
+            MainUserLoginCase(
                 $this->request,
                 REDIRECT_ROUTE_LOGIN,
                 ERROR_LOGIN_MESSAGE,

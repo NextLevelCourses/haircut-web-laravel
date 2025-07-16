@@ -22,7 +22,7 @@ function MainUserLoginCase(
     }
 
     $UserSession = RepositoryGenerateSessionLoginByUser(RepositorySetRequestUserLoginBaseEmailOrNoTelp($request));
-    MainLog('success', $SuccessLoginMessage, $request->route()->getName(), Auth::guard('user')->user()->id);
+    MainLog('success', $SuccessLoginMessage . "ID: {$UserSession->id}, Email: {$UserSession->email}", $request->route()->getName(), Auth::guard('user')->user()->id);
 }
 
 function MainUserLogoutCase($request, string $Redirectlanding, string $ErrorLogoutMessage)
