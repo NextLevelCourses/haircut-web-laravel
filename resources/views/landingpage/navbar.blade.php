@@ -17,9 +17,13 @@
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
             <a href="{{ url('/register') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i
-                    class="fa fa-arrow-left me-3"></i> Sign Up</a>
-            <a href="{{ url('/login') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3">Sign In<i
-                    class="fa fa-arrow-right ms-3"></i></a>
+                    class="fa fa-registered me-3"></i> Register</a>
+            <a href="{{ url('/login') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3">Log
+                In<i class="fa fa-sign-in ms-3"></i></a>
+            @if (Auth::guard('user')->check())
+                <a href="{{ url('/logout') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3">Log
+                    Out<i class="fa fa-sign-out ms-3"></i></a>
+            @endif
         </div>
     </nav>
     <!-- Navbar End -->
