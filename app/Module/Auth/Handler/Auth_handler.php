@@ -48,7 +48,8 @@ class Auth_handler extends Auth_domain implements Auth_interface
                 REDIRECT_ROUTE_LOGIN,
                 ERROR_LOGIN_MESSAGE,
                 SUCCESS_LOGIN_MESSAGE
-            ); // <- inject process login user
+            );
+            $this->HandlerRedirectLoginSuccess(SUCCESS_LOGIN_MESSAGE);
         } catch (\Exception $e) {
             return $e;
         }
