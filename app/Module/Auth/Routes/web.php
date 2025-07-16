@@ -8,10 +8,10 @@ Route::prefix('login')->group(function () {
     Route::post('/', [Auth_handler::class, 'UserLogin'])->name('user.do_login');
 });
 
-Route::prefix('4dmincut')->group(function () {
-    Route::get('/', [Auth_handler::class, 'ViewAdminLogin'])->name('admin.login');
-    Route::admin('/', [Auth_handler::class, 'AdminLogin'])->name('admin.do_login');
-});
+// Route::prefix('4dmincut')->group(function () {
+//     Route::get('/', [Auth_handler::class, 'ViewAdminLogin'])->name('admin.login');
+//     Route::admin('/', [Auth_handler::class, 'AdminLogin'])->name('admin.do_login');
+// });
 
 Route::prefix('register')->group(function () {
     Route::get('/', [Auth_handler::class, 'ViewUserRegister'])->name('user.register');
