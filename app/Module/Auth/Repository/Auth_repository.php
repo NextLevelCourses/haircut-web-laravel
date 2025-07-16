@@ -11,8 +11,8 @@ function RepositoryValidateUserLoginBaseEmailOrNoTelp(array $credential): bool
 function RepositorySetRequestUserLoginBaseEmailOrNoTelp($request): array
 {
     return filter_var($request->ephone, FILTER_VALIDATE_EMAIL) ?
-        ['no_hp' => $request->ephone, 'password' => $request->password] :
-        ['email' => $request->ephone, 'password' => $request->password];
+        ['email' => $request->ephone, 'password' => $request->password] :
+        ['no_hp' => $request->ephone, 'password' => $request->password];
 }
 
 function RepositoryGenerateSessionLoginByUser(array $credential)

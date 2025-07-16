@@ -4,18 +4,22 @@ use Illuminate\Support\Facades\DB;
 
 function HandlerLogSuccess(string $message, int $user_id): void
 {
-    DB::insert('INSERT INTO log_success (message, users_id) VALUES (?, ?)', [
+    DB::insert('INSERT INTO log_success (message, users_id, created_at, updated_at) VALUES (?, ?, ?, ?)', [
         $message,
-        $user_id
+        $user_id,
+        now(),
+        now()
     ]);
 }
 
 function HandlerLogError(string $message, string $route, int $user_id): void
 {
-    DB::insert('INSERT INTO log_errors (message, route, users_id) VALUES (?, ?, ?)', [
+    DB::insert('INSERT INTO log_errors (message, route, users_id, created_at, updated_at) VALUES (?, ?, ?, ?, ?)', [
         $message,
         $route,
-        $user_id
+        $user_id,
+        now(),
+        now()
     ]);
 }
 
