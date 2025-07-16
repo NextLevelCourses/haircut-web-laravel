@@ -28,11 +28,20 @@ function MainUserLoginCase(
     return redirect()->intended($RedirectLoginSuccess)->with('success', $SuccessLoginMessage);
 }
 
-function MainUserLogoutCase($request, string $Redirectlanding, string $ErrorLogoutMessage)
-{
-    RepositoryValidateUserSessionLogout($request, $Redirectlanding, $ErrorLogoutMessage);
-    Auth::guard('user')->logout();
+function MainUserLogoutCase(
+    $request,
+    string $RedirectLanding,
+    string $RedirectLogin,
+    string $ErrorLogoutMessage,
+    string $SuccessLogoutMessage
+): RedirectResponse {
+    if (!RepositoryValidateUserLogout()) {
+        MainLog('error', 'Anda tidak mempunyai session untuk logout', $request->route()->getName(), Auth::guard('user')->id());
+        return redirect()->route($RedirectLanding)->with('error', $ErrorLogoutMessage);
+    }
+
     MainLog('success', 'Anda berhasil logout', $request->route()->getName(), Auth::guard('user')->user()->id);
+    return RepositoryUserSessionLogout($RedirectLogin, $SuccessLogoutMessage);
 }
 
 

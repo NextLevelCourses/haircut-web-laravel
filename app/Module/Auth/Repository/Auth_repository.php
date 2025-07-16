@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,13 +36,15 @@ function RepositoryUserSubmitRegistration(string $name, string $email, string $n
     ]);
 }
 
-function RepositoryValidateUserSessionLogout(
-    $request,
-    string $RedirectLanding,
-    string $ErrorLogoutMessage
-) {
-    if (!Auth::guard('user')->check()) {
-        MainLog('error', 'Anda tidak mempunyai session untuk logout', $request->route()->getName(), Auth::guard('user')->id());
-        return redirect()->route($RedirectLanding)->with('error', $ErrorLogoutMessage);
-    }
+function RepositoryValidateUserLogout(): bool
+{
+    return !Auth::guard('user')->check() ? false : true;
+}
+
+function RepositoryUserSessionLogout(
+    string $RedirectLogin,
+    string $SuccessLogoutMessage,
+): RedirectResponse {
+    Auth::guard('user')->logout();
+    return redirect()->route($RedirectLogin)->with('success', $SuccessLogoutMessage);
 }
