@@ -41,7 +41,12 @@ class Auth_handler extends Auth_domain implements Auth_interface
             USER_LOGIN_MESSAGE
         );
         try {
-            return MainUserLoginCase(); // <- inject process login user
+            return MainUserLoginCase(
+                $this->request,
+                REDIRECT_ROUTE_LOGIN,
+                ERROR_LOGIN_MESSAGE,
+                SUCCESS_LOGIN_MESSAGE
+            ); // <- inject process login user
         } catch (\Exception $e) {
             return $e;
         }
@@ -55,7 +60,7 @@ class Auth_handler extends Auth_domain implements Auth_interface
     public function UserLogout(): RedirectResponse
     {
         try {
-            MainUserLogoutCase($this->request);
+            MainUserLogoutCase($this->request, REDIRECT_LANDING, ERROR_LOGOUT_MESSAGE); // <- inject process logout user
             return redirect()->route(REDIRECT_LANDING)->with('success', SUCCESS_LOGOUT_MESSAGE);
         } catch (\Exception $e) {
             return redirect()->route(REDIRECT_LANDING)->with('error', $e->getMessage());

@@ -1,6 +1,7 @@
 <?php
 
 const SUCCESS_LOGIN_MESSAGE = 'Login successful';
+const ERROR_LOGIN_MESSAGE = 'Login failed, wrong email or phone number or password';
 const SUCCESS_REGISTER_MESSAGE = 'Registration successful,please login here';
 
 const REDIRECT_ROUTE_LOGIN = 'user.login';

@@ -15,6 +15,12 @@
                             </div>
                         @endsession
 
+                        @session('error')
+                            <div class="alert alert-danger" role="alert">
+                                {{ $value }}
+                            </div>
+                        @endsession
+
                         <h2 class="text-uppercase text-center mb-4 text-white">Login</h2>
 
                         <form action="{{ route('user.do_login') }}" method="POST">
