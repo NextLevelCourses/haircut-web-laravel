@@ -23,7 +23,7 @@
                             <div class="mb-3">
                                 <label for="email" class="form-label text-white text-uppercase">Email/No
                                     Handphone</label>
-                                <input type="email"
+                                <input type="text"
                                     class="form-control @error('ephone') is-invalid @enderror border-0 py-3" id="ephone"
                                     name="ephone" placeholder="Enter your email or no handphone">
                                 @error('ephone')
