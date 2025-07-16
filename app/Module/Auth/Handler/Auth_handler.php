@@ -30,11 +30,6 @@ class Auth_handler extends Auth_domain implements Auth_interface
         $request->validate($rules, $message);
     }
 
-    public function HandlerRedirectLoginSuccess(string $MessageLoginSuccess): RedirectResponse
-    {
-        return redirect()->intended(REDIRECT_LOGIN_SUCCESS)->with('success', $MessageLoginSuccess);
-    }
-
     public function UserLogin()
     {
         $this->HandlerValidateUserLogin(
@@ -43,13 +38,13 @@ class Auth_handler extends Auth_domain implements Auth_interface
             USER_LOGIN_MESSAGE
         );
         try {
-            MainUserLoginCase(
+            return MainUserLoginCase(
                 $this->request,
                 REDIRECT_ROUTE_LOGIN,
+                REDIRECT_LOGIN_SUCCESS,
                 ERROR_LOGIN_MESSAGE,
-                SUCCESS_LOGIN_MESSAGE
+                SUCCESS_LOGIN_MESSAGE,
             );
-            $this->HandlerRedirectLoginSuccess(SUCCESS_LOGIN_MESSAGE);
         } catch (\Exception $e) {
             return $e;
         }

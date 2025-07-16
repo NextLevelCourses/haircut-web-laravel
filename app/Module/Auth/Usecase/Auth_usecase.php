@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 //import repository
@@ -14,15 +15,17 @@ require base_path('app/Src/Log/Logging.php'); //log
 function MainUserLoginCase(
     $request,
     string $RedirectLogin,
+    string $RedirectLoginSuccess,
     string $ErrorLoginMessage,
     string $SuccessLoginMessage,
-) {
+): RedirectResponse {
     if (!RepositoryValidateUserLoginBaseEmailOrNoTelp(RepositorySetRequestUserLoginBaseEmailOrNoTelp($request))) {
         return redirect()->route($RedirectLogin)->with('error', $ErrorLoginMessage);
     }
 
     $UserSession = RepositoryGenerateSessionLoginByUser(RepositorySetRequestUserLoginBaseEmailOrNoTelp($request));
     MainLog('success', $SuccessLoginMessage . "ID: {$UserSession->id}, Email: {$UserSession->email}", $request->route()->getName(), Auth::guard('user')->user()->id);
+    return redirect()->intended($RedirectLoginSuccess)->with('success', $SuccessLoginMessage);
 }
 
 function MainUserLogoutCase($request, string $Redirectlanding, string $ErrorLogoutMessage)
