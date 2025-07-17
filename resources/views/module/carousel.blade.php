@@ -1,108 +1,111 @@
-@extends('landingpage.master')
+@extends('layouts.user.master')
 
 @section('title', 'Home')
 
 @section('content')
-<!-- Carousel Start -->
-<div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-                <img class="w-100" src="{{ asset('assets/img/carousel-1.jpg') }}" alt="Image">
-                <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
-                    <div class="mx-sm-5 px-5 text-white" style="max-width: 900px;">
-                        <h1 class="display-2 text-uppercase mb-4 animated slideInDown">
-                            We Will Keep You An Awesome Look
-                        </h1>
-                        <h4 class="text-uppercase mb-4 animated slideInDown">
-                            <i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, Aussie
-                        </h4>
-                        <h4 class="text-uppercase mb-4 animated slideInDown">
-                            <i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890
-                        </h4>
-                        <a href="{{ url('/login') }}" class="btn btn-primary px-4 py-2 mt-3 animated zoomIn">
-                            Book Now
-                        </a>
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img class="w-100" src="{{ asset('assets/img/carousel-1.jpg') }}" alt="Image">
+                    <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
+                        <div class="mx-sm-5 px-5 text-white" style="max-width: 900px;">
+                            <h1 class="display-2 text-uppercase mb-4 animated slideInDown">
+                                We Will Keep You An Awesome Look
+                            </h1>
+                            <h4 class="text-uppercase mb-4 animated slideInDown">
+                                <i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, Aussie
+                            </h4>
+                            <h4 class="text-uppercase mb-4 animated slideInDown">
+                                <i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890
+                            </h4>
+                            <a href="{{ url('/login') }}" class="btn btn-primary px-4 py-2 mt-3 animated zoomIn">
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img class="w-100" src="{{ asset('assets/img/carousel-2.jpg') }}" alt="Image">
+                    <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
+                        <div class="mx-sm-5 px-5 text-white" style="max-width: 900px;">
+                            <h1 class="display-2 text-uppercase mb-4 animated slideInDown">
+                                The Shortcut Haircut at Affordable Price
+                            </h1>
+                            <h4 class="text-uppercase mb-4 animated slideInDown">
+                                <i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, Aussie
+                            </h4>
+                            <h4 class="text-uppercase mb-4 animated slideInDown">
+                                <i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890
+                            </h4>
+                            <a href="{{ url('/login') }}" class="btn btn-primary px-4 py-2 mt-3 animated zoomIn">
+                                Book Now
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-                <img class="w-100" src="{{ asset('assets/img/carousel-2.jpg') }}" alt="Image">
-                <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
-                    <div class="mx-sm-5 px-5 text-white" style="max-width: 900px;">
-                        <h1 class="display-2 text-uppercase mb-4 animated slideInDown">
-                            The Shortcut Haircut at Affordable Price
-                        </h1>
-                        <h4 class="text-uppercase mb-4 animated slideInDown">
-                            <i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, Aussie
-                        </h4>
-                        <h4 class="text-uppercase mb-4 animated slideInDown">
-                            <i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890
-                        </h4>
-                        <a href="{{ url('/login') }}" class="btn btn-primary px-4 py-2 mt-3 animated zoomIn">
-                            Book Now
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-</div>
-<!-- Carousel End -->
+    <!-- Carousel End -->
 
     <!-- Carousel End -->
 
 
     <!-- About Start -->
     <div class="container-xxl py-5">
-    <div id="aboutus" class="container">
-        <div class="row g-5">
-            <!-- Gambar & Pengalaman -->
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="d-flex flex-column">
-                    <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}" alt="">
-                    <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
-                        <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
-                        <h2 class="text-uppercase mb-0">Experience</h2>
+        <div id="aboutus" class="container">
+            <div class="row g-5">
+                <!-- Gambar & Pengalaman -->
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column">
+                        <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}" alt="">
+                        <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
+                            <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
+                            <h2 class="text-uppercase mb-0">Experience</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Konten About -->
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
-                <h1 class="text-uppercase mb-4">A Comfortable Place to Redefine Your Style</h1>
-                <p>Kami adalah barbershop dengan sentuhan modern dan nuansa klasik. Dengan tempat yang bersih, nyaman, serta barber yang profesional, kami hadir untuk memberi pengalaman cukur rambut terbaik.</p>
-                <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p>
+                <!-- Konten About -->
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
+                    <h1 class="text-uppercase mb-4">A Comfortable Place to Redefine Your Style</h1>
+                    <p>Kami adalah barbershop dengan sentuhan modern dan nuansa klasik. Dengan tempat yang bersih, nyaman,
+                        serta barber yang profesional, kami hadir untuk memberi pengalaman cukur rambut terbaik.</p>
+                    <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap
+                        minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p>
 
-                <!-- Statistik dan rating -->
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <h3 class="text-uppercase mb-3">Since 1998</h3>
-                        <p class="mb-0">Telah melayani ribuan pelanggan dengan konsistensi dan kualitas tinggi.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="text-uppercase mb-3">1.500+ Happy Clients</h3>
-                        <p class="mb-0">Banyak pelanggan yang kembali secara rutin dan memberikan testimoni positif.</p>
+                    <!-- Statistik dan rating -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h3 class="text-uppercase mb-3">Since 1998</h3>
+                            <p class="mb-0">Telah melayani ribuan pelanggan dengan konsistensi dan kualitas tinggi.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="text-uppercase mb-3">1.500+ Happy Clients</h3>
+                            <p class="mb-0">Banyak pelanggan yang kembali secara rutin dan memberikan testimoni positif.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- About End -->
 
@@ -115,100 +118,100 @@
                 <h1 class="text-uppercase">What We Provide</h1>
             </div>
         </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
-                            style="width: 60px; height: 60px;">
-                            <img class="img-fluid" src="{{ asset('assets/img/haircut.png') }}" alt="">
-                        </div>
-                        <div class="ps-4">
-                            <h3 class="text-uppercase mb-3">Haircut</h3>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
-                            <span class="text-uppercase text-primary">From $15</span>
-                        </div>
-                        <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                        style="width: 60px; height: 60px;">
+                        <img class="img-fluid" src="{{ asset('assets/img/haircut.png') }}" alt="">
                     </div>
+                    <div class="ps-4">
+                        <h3 class="text-uppercase mb-3">Haircut</h3>
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
+                        <span class="text-uppercase text-primary">From $15</span>
+                    </div>
+                    <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
-                            style="width: 60px; height: 60px;">
-                            <img class="img-fluid" src="{{ asset('assets/img/beard-trim.png') }}" alt="">
-                        </div>
-                        <div class="ps-4">
-                            <h3 class="text-uppercase mb-3">Beard Trim</h3>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
-                            <span class="text-uppercase text-primary">From $15</span>
-                        </div>
-                        <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                        style="width: 60px; height: 60px;">
+                        <img class="img-fluid" src="{{ asset('assets/img/beard-trim.png') }}" alt="">
                     </div>
+                    <div class="ps-4">
+                        <h3 class="text-uppercase mb-3">Beard Trim</h3>
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
+                        <span class="text-uppercase text-primary">From $15</span>
+                    </div>
+                    <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
-                            style="width: 60px; height: 60px;">
-                            <img class="img-fluid" src="{{ asset('assets/img/mans-shave.png') }}" alt="">
-                        </div>
-                        <div class="ps-4">
-                            <h3 class="text-uppercase mb-3">Mans Shave</h3>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
-                            <span class="text-uppercase text-primary">From $15</span>
-                        </div>
-                        <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                        style="width: 60px; height: 60px;">
+                        <img class="img-fluid" src="{{ asset('assets/img/mans-shave.png') }}" alt="">
                     </div>
+                    <div class="ps-4">
+                        <h3 class="text-uppercase mb-3">Mans Shave</h3>
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
+                        <span class="text-uppercase text-primary">From $15</span>
+                    </div>
+                    <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
-                            style="width: 60px; height: 60px;">
-                            <img class="img-fluid" src="{{ asset('assets/img/hair-dyeing.png') }}" alt="">
-                        </div>
-                        <div class="ps-4">
-                            <h3 class="text-uppercase mb-3">Hair Dyeing</h3>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
-                            <span class="text-uppercase text-primary">From $15</span>
-                        </div>
-                        <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                        style="width: 60px; height: 60px;">
+                        <img class="img-fluid" src="{{ asset('assets/img/hair-dyeing.png') }}" alt="">
                     </div>
+                    <div class="ps-4">
+                        <h3 class="text-uppercase mb-3">Hair Dyeing</h3>
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
+                        <span class="text-uppercase text-primary">From $15</span>
+                    </div>
+                    <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
-                            style="width: 60px; height: 60px;">
-                            <img class="img-fluid" src="{{ asset('assets/img/mustache.png') }}" alt="">
-                        </div>
-                        <div class="ps-4">
-                            <h3 class="text-uppercase mb-3">Mustache</h3>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
-                            <span class="text-uppercase text-primary">From $15</span>
-                        </div>
-                        <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                        style="width: 60px; height: 60px;">
+                        <img class="img-fluid" src="{{ asset('assets/img/mustache.png') }}" alt="">
                     </div>
+                    <div class="ps-4">
+                        <h3 class="text-uppercase mb-3">Mustache</h3>
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
+                        <span class="text-uppercase text-primary">From $15</span>
+                    </div>
+                    <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
-                            style="width: 60px; height: 60px;">
-                            <img class="img-fluid" src="{{ asset('assets/img/stacking.png') }}" alt="">
-                        </div>
-                        <div class="ps-4">
-                            <h3 class="text-uppercase mb-3">Stacking</h3>
-                            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
-                            <span class="text-uppercase text-primary">From $15</span>
-                        </div>
-                        <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                        style="width: 60px; height: 60px;">
+                        <img class="img-fluid" src="{{ asset('assets/img/stacking.png') }}" alt="">
                     </div>
+                    <div class="ps-4">
+                        <h3 class="text-uppercase mb-3">Stacking</h3>
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
+                        <span class="text-uppercase text-primary">From $15</span>
+                    </div>
+                    <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- Service End -->
 
 
     <!-- Price Start -->
     <div class="container-xxl py-5">
-        <div  class="container">
+        <div class="container">
             <div class="row g-0">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="bg-secondary h-100 d-flex flex-column justify-content-center p-5">
@@ -417,84 +420,85 @@
 
     <!-- Contact Form Start -->
     <div class="container-xxl py-5">
-    <div id="contact" class="container">
-        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
-            <p class="d-inline-block bg-secondary text-primary py-1 px-4">Hubungi Kami</p>
-            <h1 class="text-uppercase">Kirim Pesan</h1>
-            <p class="text-muted">Masukkan email dan pesan yang ingin Anda kirimkan.</p>
-        </div>
-
-        <!-- Kontak Info -->
-        <div class="row justify-content-center mb-4">
-            <div class="col-lg-6 text-center">
-                <p class="mb-2">
-                    <i class="bi bi-envelope text-primary me-2"></i>
-                    <strong>Email:</strong> hairshortcut@email.com
-                </p>
-                <p class="mb-2">
-                    <i class="bi bi-whatsapp text-success me-2"></i>
-                    <strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
-                </p>
-            </div>
-        </div>
-
-        <!-- Form & Google Maps Side by Side -->
-        <div class="row g-5 justify-content-center align-items-start">
-            <!-- Form -->
-            <div class="col-lg-6">
-                <form method="POST" action="#">
-                    @csrf
-                    <div class="mb-4">
-                        <input type="email" name="email" class="form-control bg-light border-0 px-4 py-3"
-                            placeholder="Alamat Email Anda" required style="color: #000;">
-                    </div>
-                    <div class="mb-4">
-                        <textarea name="message" class="form-control bg-light border-0 px-4 py-3"
-                            rows="6" placeholder="Tulis pesan Anda di sini..." required style="color: #000;"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn btn-primary py-3 px-5 rounded-pill text-uppercase" type="submit">
-                            <i class="bi bi-send me-2"></i> Kirim Pesan
-                        </button>
-                    </div>
-                </form>
+        <div id="contact" class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <p class="d-inline-block bg-secondary text-primary py-1 px-4">Hubungi Kami</p>
+                <h1 class="text-uppercase">Kirim Pesan</h1>
+                <p class="text-muted">Masukkan email dan pesan yang ingin Anda kirimkan.</p>
             </div>
 
-            <!-- Google Maps -->
-            <div class="col-lg-6">
-                <div class="rounded overflow-hidden shadow" style="height: 100%; min-height: 320px;">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31692.648032024063!2d106.8271533!3d-6.1753948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f6b4e9a61f%3A0x3027a76e352bd80!2sJakarta!5e0!3m2!1sen!2sid!4v1719300000000"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+            <!-- Kontak Info -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-6 text-center">
+                    <p class="mb-2">
+                        <i class="bi bi-envelope text-primary me-2"></i>
+                        <strong>Email:</strong> hairshortcut@email.com
+                    </p>
+                    <p class="mb-2">
+                        <i class="bi bi-whatsapp text-success me-2"></i>
+                        <strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890" target="_blank">+62
+                            812-3456-7890</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Form & Google Maps Side by Side -->
+            <div class="row g-5 justify-content-center align-items-start">
+                <!-- Form -->
+                <div class="col-lg-6">
+                    <form method="POST" action="#">
+                        @csrf
+                        <div class="mb-4">
+                            <input type="email" name="email" class="form-control bg-light border-0 px-4 py-3"
+                                placeholder="Alamat Email Anda" required style="color: #000;">
+                        </div>
+                        <div class="mb-4">
+                            <textarea name="message" class="form-control bg-light border-0 px-4 py-3" rows="6"
+                                placeholder="Tulis pesan Anda di sini..." required style="color: #000;"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary py-3 px-5 rounded-pill text-uppercase" type="submit">
+                                <i class="bi bi-send me-2"></i> Kirim Pesan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Google Maps -->
+                <div class="col-lg-6">
+                    <div class="rounded overflow-hidden shadow" style="height: 100%; min-height: 320px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31692.648032024063!2d106.8271533!3d-6.1753948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f6b4e9a61f%3A0x3027a76e352bd80!2sJakarta!5e0!3m2!1sen!2sid!4v1719300000000"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-                <!-- Alert Success/Error -->
-                @if (session('success'))
-                    <div class="alert alert-success mt-4">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                @if ($errors->any())
-                    <div class="alert alert-danger mt-4">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-            </div>
+    <!-- Alert Success/Error -->
+    @if (session('success'))
+        <div class="alert alert-success mt-4">
+            {{ session('success') }}
         </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger mt-4">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     </div>
-</div>
-<!-- Contact Form End -->
-    @endsection
+    </div>
+    </div>
+    </div>
+    <!-- Contact Form End -->
+@endsection

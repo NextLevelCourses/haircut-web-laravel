@@ -1,4 +1,4 @@
-@extends('landingpage.auth.layout')
+@extends('layouts.user.master')
 
 @section('title', 'Login')
 

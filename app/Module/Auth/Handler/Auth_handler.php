@@ -22,7 +22,7 @@ class Auth_handler extends Auth_domain implements Auth_interface
 
     public function viewUserLogin(): View
     {
-        return view('module.login');
+        return view('module.auth.user_login');
     }
 
     public function HandlerValidateUserLogin($request, array $rules, array $message): void
@@ -74,7 +74,7 @@ class Auth_handler extends Auth_domain implements Auth_interface
 
     public function viewUserRegister(): View
     {
-        return view('module.register');
+        return view('module.auth.user_register');
     }
 
     public function HandlerValidateRegistration($request, array $rules, array $message): void

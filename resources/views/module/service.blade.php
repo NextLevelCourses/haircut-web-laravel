@@ -1,27 +1,27 @@
-@extends('landingpage.master')
+@extends('layouts.user.master')
 
 @section('title', 'Home')
 
 @section('content')
-<!-- Header Info Start -->
-<div class="container-xxl pt-5 pb-3">
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <div class="mb-2">
-                <h5 class="text-uppercase text-primary">My Booking</h5>
-                <h3 class="fw-bold">Halo, {{ Auth::user()->name ?? 'Username' }}</h3>
+    <!-- Header Info Start -->
+    <div class="container-xxl pt-5 pb-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div class="mb-2">
+                    <h5 class="text-uppercase text-primary">My Booking</h5>
+                    <h3 class="fw-bold">Halo, {{ Auth::user()->name ?? 'Username' }}</h3>
+                </div>
+                <div class="text-end">
+                    <p class="mb-0 text-muted">
+                        {{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}
+                    </p>
+                </div>
             </div>
-            <div class="text-end">
-                <p class="mb-0 text-muted">
-                    {{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}
-                </p>
-            </div>
+            <hr>
         </div>
-        <hr>
     </div>
-</div>
-<!-- Header Info End -->
-<!-- Service Start -->
+    <!-- Header Info End -->
+    <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -117,4 +117,4 @@
         </div>
     </div>
     <!-- Service End -->
-    @endsection
+@endsection
