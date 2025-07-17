@@ -13,3 +13,5 @@ Route::get('/success_transaction', [Landing_handler::class, 'success_transaction
 Route::get('/failed_transaction', [Landing_handler::class, 'failed_transaction'])->name('Landing.failed_transaction');
 Route::get('/login', [Landing_handler::class, 'ViewLogin'])->name('Landing.login');
 Route::get('/register', [Landing_handler::class, 'ViewRegister'])->name('Landing.register');
+Route::get('/forgot', [Landing_handler::class, 'ViewForgot'])->name('Landing.forgot');
+Route::get('/reset_from', [Landing_handler::class, 'ViewResetFrom'])->name('Landing.reset_from');

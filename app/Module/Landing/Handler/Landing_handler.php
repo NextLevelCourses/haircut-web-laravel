@@ -106,4 +106,14 @@ class Landing_handler implements Landing_interface
     {
         return view('module.register');
     }
+
+    public function ViewForgot(): View
+    {
+        return view('module.forgot');
+    }
+
+    public function ViewResetFrom(): View
+    {
+        return view('module.reset_from');
+    }
 }
