@@ -30,6 +30,17 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="bg-secondary p-5">
                         <p class="d-inline-block bg-dark text-primary py-1 px-4">Contact Us</p>
+                        @session('success')
+                            <div class="alert alert-success" role="alert">
+                                {{ $value }}
+                            </div>
+                        @endsession
+
+                        @session('error')
+                            <div class="alert alert-danger" role="alert">
+                                {{ $value }}
+                            </div>
+                        @endsession
                         <h1 class="text-uppercase mb-4">Have Any Question? Please Contact Us!</h1>
                         <p class="mb-4">The contact form insert your name,email,subject,and also message it.
                             {{-- done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> --}}
