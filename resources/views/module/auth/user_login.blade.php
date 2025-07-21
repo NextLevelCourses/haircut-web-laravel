@@ -66,7 +66,8 @@
 
                         <p class="mt-4 text-white text-center">
                             Don't have an account?
-                            <a href="{{ route('user.register') }}" class="text-primary">Register here</a>
+                            <a href="{{ route('user.register') }}" class="text-primary">Register here</a> Or Back Landing <a
+                                href="{{ route('Landing.index') }}" class="text-primary">Home</a>
                         </p>
                     </div>
                 </div>
