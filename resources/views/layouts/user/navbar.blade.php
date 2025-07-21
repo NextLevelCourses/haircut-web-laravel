@@ -9,12 +9,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                @if (!Auth::guard('user')->check() && Request::is('/'))
-                    <a href="{{ url('/') }}"
-                        class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
-                    <a href="#services" class="nav-item nav-link">Service</a>
-                    <a href="#barberman" class="nav-item nav-link">Barber Man</a>
-                    <a href="#aboutus" class="nav-item nav-link">About Us</a>
+                @if (!Auth::guard('user')->check())
+                    @if (Request::is('contact'))
+                        <a href="{{ url('/') }}"
+                            class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                    @else
+                        <a href="{{ url('/') }}"
+                            class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                        <a href="#services" class="nav-item nav-link">Service</a>
+                        <a href="#barberman" class="nav-item nav-link">Barber Man</a>
+                        <a href="#aboutus" class="nav-item nav-link">About Us</a>
+                    @endif
                 @endif
                 <a href="{{ route('Landing.service') }}"
                     class="nav-item nav-link {{ Request::is('service') ? 'active' : '' }}">Book</a>
