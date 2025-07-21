@@ -2,6 +2,11 @@
 
 @section('title', 'Home')
 
+@php
+    $authUserCheck = Auth::guard('user')->check();
+    $authUser = Auth::guard('user')->user();
+@endphp
+
 @section('content')
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -33,14 +38,16 @@
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent" id="name"
-                                            placeholder="Your Name">
+                                            name="name" placeholder="Your Name"
+                                            value="@if ($authUserCheck) {{ $authUser->name }} @else {{ old('name') }} @endif">
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="email" class="form-control bg-transparent" id="email"
-                                            placeholder="Your Email">
+                                            name="email" placeholder="Your Email"
+                                            value="@if ($authUserCheck) {{ $authUser->email }} @else {{ old('email') }} @endif">
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
