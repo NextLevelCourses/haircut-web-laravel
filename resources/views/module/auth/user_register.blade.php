@@ -27,7 +27,7 @@
 
                             <div class="mb-3">
                                 <label for="email" class="form-label text-white text-uppercase">Email</label>
-                                <input type="email"
+                                <input type="text"
                                     class="form-control @error('email') is-invalid @enderror border-0 py-3" id="email"
                                     name="email" placeholder="Enter your email" value="{{ old('email') }}">
                                 @error('email')

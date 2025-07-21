@@ -419,7 +419,7 @@
     <!-- Testimonial End -->
 
     <!-- Contact Form Start -->
-    <div class="container-xxl py-5">
+    {{-- <div class="container-xxl py-5">
         <div id="contact" class="container">
             <div class="text-center mx-auto mb-5" style="max-width: 600px;">
                 <p class="d-inline-block bg-secondary text-primary py-1 px-4">Hubungi Kami</p>
@@ -476,7 +476,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <!-- Alert Success/Error -->

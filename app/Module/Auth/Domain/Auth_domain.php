@@ -6,6 +6,6 @@ use Illuminate\Http\RedirectResponse;
 
 abstract class Auth_domain
 {
-    abstract public function HandlerValidateUserLogin($request, array $rules, array $message): void;
-    abstract public function HandlerValidateRegistration($request, array $rules, array $message): void;
+    abstract public function HandlerValidateForm($request, array $rules, array $message): void;
+    abstract public function HandlerValidateSessionLogin(string $guard): bool;
 }

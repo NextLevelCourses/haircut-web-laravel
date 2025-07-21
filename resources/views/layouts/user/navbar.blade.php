@@ -20,7 +20,7 @@
                 <a href="{{ url('/register') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i
                         class="fa fa-registered me-3"></i> Register</a>
                 <a href="{{ url('/login') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3">Log
-                    In<i class="fa fa-sign-in ms-3"></i></a>
+                    In<i class="fas fa-sign-in-alt ms-3"></i></i></a>
             @else
                 <form action="{{ route('user.do_logout') }}" method="post" id="user.do_logout">
                     @csrf
@@ -28,7 +28,7 @@
                         class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ms-3"
                         onclick="event.preventDefault(); document.getElementById('user.do_logout').submit();"
                         role="button">Log
-                        Out | {{ Auth::guard('user')->user()->email }}<i class="fa fa-sign-out ms-3"></i></a>
+                        Out | {{ Auth::guard('user')->user()->email }}<i class="fas fa-sign-out-alt ms-3"></i></a>
                 </form>
             @endif
         </div>

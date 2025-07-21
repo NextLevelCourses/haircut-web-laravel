@@ -2,6 +2,7 @@
 
 const SUCCESS_LOGIN_MESSAGE = 'Login successful,please logout again if out session';
 const ERROR_LOGIN_MESSAGE = 'Login failed, wrong email or phone number or password';
+const HAVE_BEEN_LOGIN_MESSAGE = 'You have been logged in, please logout first if you want to login again';
 const SUCCESS_REGISTER_MESSAGE = 'Registration successful,please login here';
 const REDIRECT_ROUTE_LOGIN = 'user.login';
 const REDIRECT_LANDING = 'Landing.index';

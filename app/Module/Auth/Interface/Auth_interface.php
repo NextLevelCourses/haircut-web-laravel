@@ -7,7 +7,7 @@ use Illuminate\Http\RedirectResponse;
 
 interface Auth_interface
 {
-    public function viewUserLogin(): View;
+    public function viewUserLogin(): View|RedirectResponse;
     public function UserLogin();
     public function UserLogout(): RedirectResponse;
     public function viewAdminLogin(): View;

@@ -8,11 +8,12 @@ require base_path('app/Module/Auth/Usecase/Auth_usecase.php'); //usecase
 require base_path('app/Module/Auth/Constant/Auth_constant.php'); //constant
 
 //implement type domain
+use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use App\Module\Auth\Domain\Auth_domain;
 use App\Module\Auth\Interface\Auth_interface;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class Auth_handler extends Auth_domain implements Auth_interface
 {
@@ -20,19 +21,24 @@ class Auth_handler extends Auth_domain implements Auth_interface
         private Request $request,
     ) {}
 
-    public function viewUserLogin(): View
+    public function HandlerValidateSessionLogin(string $guard): bool
     {
-        return view('module.auth.user_login');
+        return !Auth::guard($guard)->check() ? false : true;
     }
 
-    public function HandlerValidateUserLogin($request, array $rules, array $message): void
+    public function HandlerValidateForm($request, array $rules, array $message): void
     {
         $request->validate($rules, $message);
     }
 
+    public function viewUserLogin(): View|RedirectResponse
+    {
+        return !$this->HandlerValidateSessionLogin('user') ? view('module.auth.user_login') : redirect()->route(REDIRECT_LANDING)->with('error', HAVE_BEEN_LOGIN_MESSAGE);
+    }
+
     public function UserLogin()
     {
-        $this->HandlerValidateUserLogin(
+        $this->HandlerValidateForm(
             $this->request,
             USER_LOGIN_RULES,
             USER_LOGIN_MESSAGE
@@ -76,19 +82,13 @@ class Auth_handler extends Auth_domain implements Auth_interface
     {
         return view('module.auth.user_register');
     }
-
-    public function HandlerValidateRegistration($request, array $rules, array $message): void
-    {
-        $request->validate($rules, $message);
-    }
-
     /**
      * @method Register
      * @description this method is focus handle register prosess
      */
     public function UserRegister()
     {
-        $this->HandlerValidateRegistration(
+        $this->HandlerValidateForm(
             $this->request,
             USER_REGISTRATION_RULES,
             USER_REGISTRATION_MESSAGE
