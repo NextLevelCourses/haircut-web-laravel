@@ -11,3 +11,4 @@ Route::get('/schedule', [Landing_handler::class, 'schedule'])->name('Landing.sch
 Route::get('/transaction', [Landing_handler::class, 'transaction'])->name('Landing.transaction');
 Route::get('/success_transaction', [Landing_handler::class, 'success_transaction'])->name('Landing.success_transaction');
 Route::get('/failed_transaction', [Landing_handler::class, 'failed_transaction'])->name('Landing.failed_transaction');
+Route::get('/contact', [Landing_handler::class, 'contact'])->name('Landing.contact');

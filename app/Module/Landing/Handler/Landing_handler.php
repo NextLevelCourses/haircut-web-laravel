@@ -106,4 +106,15 @@ class Landing_handler implements Landing_interface
     {
         return view('module.register');
     }
+
+    /**
+     * @method contact
+     * @return View
+     * @description This method returns the contact page view.
+     */
+
+    public function Contact(): View
+    {
+        return view('module.contact');
+    }
 }

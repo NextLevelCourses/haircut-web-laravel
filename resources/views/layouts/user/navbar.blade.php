@@ -14,7 +14,7 @@
                 <a href="#services" class="nav-item nav-link">Service</a>
                 <a href="#barberman" class="nav-item nav-link">Barber Man</a>
                 <a href="#aboutus" class="nav-item nav-link">About Us</a>
-                <a href="#contact" class="nav-item nav-link">Contact</a>
+                <a href="{{ route('Landing.contact') }}" class="nav-item nav-link">Contact</a>
             </div>
             @if (!Auth::guard('user')->check())
                 <a href="{{ url('/register') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i

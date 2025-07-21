@@ -16,4 +16,5 @@ interface Landing_interface
     public function FailedTransaction(): View;
     public function ViewLogin(): View;
     public function ViewRegister(): View;
+    public function Contact(): View;
 }
