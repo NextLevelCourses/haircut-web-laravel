@@ -5,6 +5,7 @@ namespace App\Module\Landing\Handler;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use App\Module\Landing\Domain\Landing_domain;
 use App\Module\Landing\Interface\Landing_interface;
 
@@ -21,14 +22,22 @@ class Landing_handler extends Landing_domain implements Landing_interface
     {
         $request->validate($rules, $message);
     }
+
+    public function HandlerSessionGuard(string $guard = ''): \Illuminate\Contracts\Auth\Guard
+    {
+        return Auth::guard($guard);
+    }
     /**
      * @method index
-     * @return View
+     * @return View|RedirectResponse
      * @description This method returns the landing page view.
      */
-    public function Index(): View
+    public function Index(): View|RedirectResponse
     {
-        return view('module.carousel');
+        if (!$this->HandlerSessionGuard('user')->check()) {
+            return view('module.carousel');
+        }
+        return redirect()->route(REDIRECT_BACK_SERVICE)->with('error', 'anda sudah login silahkan lanjutkan ke booking');
     }
 
     /**
@@ -137,7 +146,7 @@ class Landing_handler extends Landing_domain implements Landing_interface
                 $this->request->email,
                 $this->request->subject,
                 $this->request->message,
-                Auth::guard('user')->user()->id ?? 0, // default is 0 because user send contact out of session
+                $this->HandlerSessionGuard('user')->user()->id ?? 0 // default is 0 because user send contact out of session;
             );
 
             return redirect()->route(REDIRECT_BACK_CONTACT)->with('success', CONTACT_SUCCESS);

@@ -3,10 +3,11 @@
 namespace App\Module\Landing\Interface;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 interface Landing_interface
 {
-    public function Index(): View;
+    public function Index(): View|RedirectResponse;
     public function Service(): View;
     public function Gender(): View;
     public function Invoice(): View;

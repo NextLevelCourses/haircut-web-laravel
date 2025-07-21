@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 const CONTACT_SUCCESS = 'Thank you for contacting us! We will get back to you soon.';
 const CONTACT_ERROR = 'There was an error submitting your contact form. Please try again later.';
 const REDIRECT_BACK_CONTACT = 'Landing.contact';
+const REDIRECT_BACK_SERVICE = 'Landing.service';
 const CONTACT_RULES = [
     'name' => 'required|string|max:255',
     'email' => 'required|email|max:255',
