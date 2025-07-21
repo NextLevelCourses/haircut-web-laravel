@@ -102,23 +102,14 @@ class Landing_handler extends Landing_domain implements Landing_interface
     }
 
     /**
-     * @method login
+     * @method invoice
      * @return View
-     * @description This method returns the login page view.
+     * @description This method returns the invoice page view.
      */
-    public function ViewLogin(): View
-    {
-        return view('module.login');
-    }
 
-    /**
-     * @method register
-     * @return View
-     * @description This method returns the register page view.
-     */
-    public function ViewRegister(): View
+    public function Invoice(): View
     {
-        return view('module.register');
+        return view('module.invoice');
     }
 
     /**
