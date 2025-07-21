@@ -7,7 +7,7 @@ Route::prefix('login')->group(function () {
     Route::get('/', [Auth_handler::class, 'ViewUserLOgin'])->name('user.login');
     Route::post('/', [Auth_handler::class, 'UserLogin'])->name('user.do_login');
 });
-Route::post('/user/logout', [Auth_handler::class, 'UserLogout'])->name('user.do_logout')->middleware('auth:user');
+Route::post('/user/logout', [Auth_handler::class, 'UserLogout'])->name('user.do_logout')->middleware(['auth:user', 'role.user']);
 
 // Route::prefix('4dmincut')->group(function () {
 //     Route::get('/', [Auth_handler::class, 'ViewAdminLogin'])->name('admin.login');
