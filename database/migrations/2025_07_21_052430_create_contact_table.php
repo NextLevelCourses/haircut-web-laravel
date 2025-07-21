@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('subject');
             $table->text('message');
             $table->boolean('is_read')->default(false);
-            $table->foreignId('users_id')->references('id')->on('users');
+            $table->integer('users_id')->nullable(); // Default to 0 if no user is logged in
+            $table->integer('admins_id')->default(0); // Nullable if no admin is assigned
             $table->timestamps();
         });
     }

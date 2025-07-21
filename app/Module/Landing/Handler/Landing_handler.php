@@ -146,7 +146,7 @@ class Landing_handler extends Landing_domain implements Landing_interface
                 $this->request->email,
                 $this->request->subject,
                 $this->request->message,
-                Auth::guard('user')->user()->id, // Get the authenticated user's ID
+                Auth::guard('user')->user()->id ?? 0, // default is 0 because user send contact out of session
             );
 
             return redirect()->route(REDIRECT_BACK_CONTACT)->with('success', CONTACT_SUCCESS);
