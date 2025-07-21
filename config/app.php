@@ -4,6 +4,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    | This value is the version of your application, which will be used when the
+    | framework needs to place the application's name in a notification or
+    | other UI elements where an application version needs to be displayed.
+    |
+    */
+
+    'version' => env('APP_VERSION', '1.0'),
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------
     |
