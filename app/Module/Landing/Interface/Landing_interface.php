@@ -17,4 +17,5 @@ interface Landing_interface
     public function ViewLogin(): View;
     public function ViewRegister(): View;
     public function Contact(): View;
+    public function ContactSubmit();
 }

@@ -4,7 +4,8 @@
 
 @php
     $authUserCheck = Auth::guard('user')->check();
-    $authUser = Auth::guard('user')->user();
+    $name = $authUserCheck ? Auth::guard('user')->user()->name : old('name');
+    $email = $authUserCheck ? Auth::guard('user')->user()->email : old('email');
 @endphp
 
 @section('content')
@@ -33,34 +34,61 @@
                         <p class="mb-4">The contact form insert your name,email,subject,and also message it.
                             {{-- done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> --}}
                         </p>
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('Landing.contact_submit') }}">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name"
-                                            name="name" placeholder="Your Name"
-                                            value="@if ($authUserCheck) {{ $authUser->name }} @else {{ old('name') }} @endif">
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('name')) is-invalid @elseif(old('name') || isset($name)) is-valid @endif bg-transparent"
+                                            id="name" name="name" placeholder="Your Name"
+                                            value="{{ $name }}">
+                                        @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control bg-transparent" id="email"
-                                            name="email" placeholder="Your Email"
-                                            value="@if ($authUserCheck) {{ $authUser->email }} @else {{ old('email') }} @endif">
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('email')) is-invalid @elseif(old('email') || isset($email)) is-valid @endif bg-transparent"
+                                            id="email" name="email" placeholder="Your Email"
+                                            value="{{ $email }}">
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="subject"
-                                            placeholder="Subject">
+                                        <input type="text"
+                                            class="form-control @if ($errors->has('subject')) is-invalid @elseif(old('subject') || isset($subject)) is-valid @endif bg-transparent"
+                                            name="subject" id="subject" placeholder="Subject"
+                                            value="{{ old('subject') }}">
+                                        @error('subject')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                         <label for="subject">Subject</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                        <textarea
+                                            class="form-control @if ($errors->has('message')) is-invalid @elseif(old('message') || isset($message)) is-valid @endif bg-transparent"
+                                            placeholder="Leave a message here" id="message" style="height: 100px" name="message">{{ old('message') }}</textarea>
+                                        @error('message')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                         <label for="message">Message</label>
                                     </div>
                                 </div>

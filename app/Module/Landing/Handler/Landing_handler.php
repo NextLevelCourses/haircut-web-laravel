@@ -2,11 +2,25 @@
 
 namespace App\Module\Landing\Handler;
 
-use App\Module\Landing\Interface\Landing_interface;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
+use App\Module\Landing\Domain\Landing_domain;
+use App\Module\Landing\Interface\Landing_interface;
 
-class Landing_handler implements Landing_interface
+//import
+require base_path('app/Module/Landing/Constant/Landing_constant.php'); //constant
+require base_path('app/Module/Landing/Usecase/Landing_usecase.php'); //constant
+
+
+class Landing_handler extends Landing_domain implements Landing_interface
 {
+    public function __construct(private Request $request) {}
+
+    public function HandlerValidateForm($request, array $rules, array $message): void
+    {
+        $request->validate($rules, $message);
+    }
     /**
      * @method index
      * @return View
@@ -116,5 +130,28 @@ class Landing_handler implements Landing_interface
     public function Contact(): View
     {
         return view('module.contact');
+    }
+
+    /**
+     * @method ContactSubmit
+     * @description This method submit contact form data.
+     */
+    public function ContactSubmit()
+    {
+        $this->HandlerValidateForm($this->request, CONTACT_RULES, CONTACT_MESSAGES);
+
+        try {
+            MainContactSubmitCase(
+                $this->request->name,
+                $this->request->email,
+                $this->request->subject,
+                $this->request->message,
+                Auth::guard('user')->user()->id, // Get the authenticated user's ID
+            );
+
+            return redirect()->route(REDIRECT_BACK_CONTACT)->with('success', CONTACT_SUCCESS);
+        } catch (\Throwable $t) {
+            return $t->getMessage();
+        }
     }
 }

@@ -4,7 +4,10 @@ use App\Module\Landing\Handler\Landing_handler;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Landing_handler::class, 'index'])->name('Landing.index');
-Route::get('/contact', [Landing_handler::class, 'contact'])->name('Landing.contact');
+Route::prefix('contact')->group(function () {
+    Route::get('/', [Landing_handler::class, 'contact'])->name('Landing.contact');
+    Route::post('/', [Landing_handler::class, 'ContactSubmit'])->name('Landing.contact_submit');
+});
 
 Route::middleware(['auth:user', 'role.user'])->group(function () {
     Route::get('/service', [Landing_handler::class, 'index'])->name('Landing.service');
