@@ -9,12 +9,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
+                <a href="{{ url('/') }}" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
                 <a href="{{ url('/login') }}" class="nav-item nav-link">Book</a>
-                <a href="#services" class="nav-item nav-link">Service</a>
-                <a href="#barberman" class="nav-item nav-link">Barber Man</a>
-                <a href="#aboutus" class="nav-item nav-link">About Us</a>
-                <a href="{{ route('Landing.contact') }}" class="nav-item nav-link">Contact</a>
+                <a href="{{ route('Landing.contact') }}"
+                    class="nav-item nav-link {{ Request::is('contact') ? 'active' : '' }}">Contact</a>
+                @if (!Auth::guard('user')->check() && Request::is('/'))
+                    <a href="#services" class="nav-item nav-link">Service</a>
+                    <a href="#barberman" class="nav-item nav-link">Barber Man</a>
+                    <a href="#aboutus" class="nav-item nav-link">About Us</a>
+                @endif
             </div>
             @if (!Auth::guard('user')->check())
                 <a href="{{ url('/register') }}" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block"><i
