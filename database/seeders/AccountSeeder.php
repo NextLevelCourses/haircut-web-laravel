@@ -18,7 +18,7 @@ class AccountSeeder extends Seeder
             [
                 'roles_id' => 2,
                 'name' => "User Haircut",
-                'email' => "haircutuser@gamil.com",
+                'email' => "haircutuser@gmail.com",
                 'password' => Hash::make('HaircutUser123!@#'),
                 'no_hp' => '081804228935',
                 'created_at' => now(),
@@ -27,7 +27,7 @@ class AccountSeeder extends Seeder
             [
                 'roles_id' => 2,
                 'name' => "Teguh Afrianda",
-                'email' => "teguhafrianda@gamil.com",
+                'email' => "teguhafrianda@gmail.com",
                 'password' => Hash::make('UserTeguhAfrianda123!@#'),
                 'no_hp' => '082190486490',
                 'created_at' => now(),
@@ -39,7 +39,7 @@ class AccountSeeder extends Seeder
             'roles_id' => 1,
             'name' => "Admin Haircut",
             'username' => 'adminhaircut',
-            'email' => "haircutadmin@gamil.com",
+            'email' => "haircutadmin@gmail.com",
             'password' => Hash::make('AdminHaircut123!@#'),
             'created_at' => now(),
             'updated_at' => now(),

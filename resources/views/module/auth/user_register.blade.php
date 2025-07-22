@@ -1,5 +1,4 @@
-@extends('landingpage.auth.layout')
-
+@extends('layouts.user.master')
 
 @section('title', 'Register')
 
@@ -12,7 +11,7 @@
                     <div class="bg-secondary p-5 rounded shadow">
                         <h2 class="text-uppercase text-center mb-4 text-white">Register</h2>
 
-                        <form action="{{ route('auth.do_register') }}" method="POST">
+                        <form action="{{ route('user.do_register') }}" method="POST">
                             @csrf
 
                             <div class="mb-3">
@@ -28,7 +27,7 @@
 
                             <div class="mb-3">
                                 <label for="email" class="form-label text-white text-uppercase">Email</label>
-                                <input type="email"
+                                <input type="text"
                                     class="form-control @error('email') is-invalid @enderror border-0 py-3" id="email"
                                     name="email" placeholder="Enter your email" value="{{ old('email') }}">
                                 @error('email')

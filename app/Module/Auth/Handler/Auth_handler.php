@@ -8,24 +8,67 @@ require base_path('app/Module/Auth/Usecase/Auth_usecase.php'); //usecase
 require base_path('app/Module/Auth/Constant/Auth_constant.php'); //constant
 
 //implement type domain
+use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use App\Module\Auth\Domain\Auth_domain;
 use App\Module\Auth\Interface\Auth_interface;
-use Illuminate\Http\Request;
 
 class Auth_handler extends Auth_domain implements Auth_interface
 {
     public function __construct(
         private Request $request,
     ) {}
-    /**
-     * @method Login
-     * @description this method is focus handle login prosess
-     */
-    public function UserLogin()
+
+    public function HandlerValidateSessionLogin(string $guard): bool
     {
-        return MainUserLoginCase(); // <- inject process login user
+        return !Auth::guard($guard)->check() ? false : true;
     }
 
+    public function HandlerValidateForm($request, array $rules, array $message): void
+    {
+        $request->validate($rules, $message);
+    }
+
+    public function viewUserLogin(): View|RedirectResponse
+    {
+        return !$this->HandlerValidateSessionLogin('user') ? view('module.auth.user_login') : redirect()->route(REDIRECT_LANDING)->with('error', HAVE_BEEN_LOGIN_MESSAGE);
+    }
+
+    public function UserLogin()
+    {
+        $this->HandlerValidateForm(
+            $this->request,
+            USER_LOGIN_RULES,
+            USER_LOGIN_MESSAGE
+        );
+        try {
+            return MainUserLoginCase(
+                $this->request,
+                REDIRECT_ROUTE_LOGIN,
+                REDIRECT_LOGIN_SUCCESS,
+                ERROR_LOGIN_MESSAGE,
+                SUCCESS_LOGIN_MESSAGE,
+            );
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function viewAdminLogin(): View
+    {
+        return view('module.adminLogin');
+    }
+
+    public function UserLogout(): RedirectResponse
+    {
+        try {
+            return MainUserLogoutCase($this->request, REDIRECT_LANDING, REDIRECT_ROUTE_LOGIN, ERROR_LOGOUT_MESSAGE, SUCCESS_LOGOUT_MESSAGE);
+        } catch (\Exception $e) {
+            return redirect()->route(REDIRECT_LANDING)->with('error', $e->getMessage());
+        }
+    }
     /**
      * @method AdminLogin
      * @description this method is focus handle admin login prosess
@@ -35,9 +78,9 @@ class Auth_handler extends Auth_domain implements Auth_interface
         return MainAdminLoginCase(); // <- inject process login admin
     }
 
-    public function HandlerValidateRegistration($request, array $rules, array $message): void
+    public function viewUserRegister(): View
     {
-        $request->validate($rules, $message);
+        return view('module.auth.user_register');
     }
     /**
      * @method Register
@@ -45,7 +88,7 @@ class Auth_handler extends Auth_domain implements Auth_interface
      */
     public function UserRegister()
     {
-        $this->HandlerValidateRegistration(
+        $this->HandlerValidateForm(
             $this->request,
             USER_REGISTRATION_RULES,
             USER_REGISTRATION_MESSAGE

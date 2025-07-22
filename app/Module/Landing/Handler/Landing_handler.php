@@ -2,19 +2,42 @@
 
 namespace App\Module\Landing\Handler;
 
-use App\Module\Landing\Interface\Landing_interface;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Module\Landing\Domain\Landing_domain;
+use App\Module\Landing\Interface\Landing_interface;
 
-class Landing_handler implements Landing_interface
+//import
+require base_path('app/Module/Landing/Constant/Landing_constant.php'); //constant
+require base_path('app/Module/Landing/Usecase/Landing_usecase.php'); //constant
+
+
+class Landing_handler extends Landing_domain implements Landing_interface
 {
+    public function __construct(private Request $request) {}
+
+    public function HandlerValidateForm($request, array $rules, array $message): void
+    {
+        $request->validate($rules, $message);
+    }
+
+    public function HandlerSessionGuard(string $guard = ''): \Illuminate\Contracts\Auth\Guard
+    {
+        return Auth::guard($guard);
+    }
     /**
      * @method index
-     * @return View
+     * @return View|RedirectResponse
      * @description This method returns the landing page view.
      */
-    public function Index(): View
+    public function Index(): View|RedirectResponse
     {
-        return view('module.carousel');
+        if (!$this->HandlerSessionGuard('user')->check()) {
+            return view('module.carousel');
+        }
+        return redirect()->route(REDIRECT_BACK_SERVICE)->with('error', 'anda sudah login silahkan lanjutkan ke booking');
     }
 
     /**
@@ -88,23 +111,48 @@ class Landing_handler implements Landing_interface
     }
 
     /**
-     * @method login
+     * @method invoice
      * @return View
-     * @description This method returns the login page view.
+     * @description This method returns the invoice page view.
      */
-    public function ViewLogin(): View
+
+    public function Invoice(): View
     {
-        return view('module.login');
+        return view('module.invoice');
     }
 
     /**
-     * @method register
+     * @method contact
      * @return View
-     * @description This method returns the register page view.
+     * @description This method returns the contact page view.
      */
-    public function ViewRegister(): View
+
+    public function Contact(): View
     {
-        return view('module.register');
+        return view('module.contact');
+    }
+
+    /**
+     * @method ContactSubmit
+     * @description This method submit contact form data.
+     */
+    public function ContactSubmit()
+    {
+        $this->HandlerValidateForm($this->request, CONTACT_RULES, CONTACT_MESSAGES);
+
+        try {
+            MainContactSubmitCase(
+                $this->request->name,
+                $this->request->email,
+                $this->request->subject,
+                $this->request->message,
+                $this->HandlerSessionGuard('user')->user()->id ?? 0 // default is 0 because user send contact out of session;
+            );
+
+            return redirect()->route(REDIRECT_BACK_CONTACT)->with('success', CONTACT_SUCCESS);
+        } catch (\Throwable $t) {
+            return $t->getMessage();
+        }
     }
 
     public function ViewForgot(): View

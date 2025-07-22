@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('assets/img/favicon.ico') }}" rel="icon">
+    <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,11 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,7 +49,9 @@
 
 
     <!-- Navbar Start -->
-    @include('landingpage.navbar')
+    @if (!Request::is('login') && !Request::is('register'))
+        @include('layouts.user.navbar')
+    @endif
 
     <!-- Navbar End --> <!-- Carousel Start --> <!-- About Start --> <!-- Service Start --> <!-- Price Start -->
     <!-- Team Start --> <!-- Working Hours Start --> <!-- Testimonial Start -->
@@ -54,7 +61,9 @@
 
 
     <!-- Footer Start -->
-    @include('landingpage.footer')
+    @if (!Request::is('login') && !Request::is('register'))
+        @include('layouts.user.footer')
+    @endif
     <!-- Footer End -->
 
 
@@ -63,13 +72,15 @@
 
 
     <!-- Scripts -->
-     <!-- JavaScript Libraries -->
+    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('assets/lib/wow/wow.min.js') }}"></script>
     <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('assets/lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/sweetalert.conf.js') }}"></script>
 
     <!-- Template Javascript -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
