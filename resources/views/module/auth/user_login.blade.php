@@ -10,14 +10,12 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-secondary p-5 rounded shadow">
                         @session('success')
-                            <div class="alert alert-success" role="alert">
-                                {{ $value }}
+                            <div class="flash-data-success" data-flashdata="{{ $value }}" role="alert">
                             </div>
                         @endsession
 
                         @session('error')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $value }}
+                            <div class="flash-data-error" data-flashdata="{{ $value }}" role="alert">
                             </div>
                         @endsession
 
