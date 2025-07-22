@@ -1,14 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 function HandlerLogSuccess(string $message, int $user_id): void
 {
     DB::insert('INSERT INTO log_success (message, users_id, created_at, updated_at) VALUES (?, ?, ?, ?)', [
         $message,
         $user_id,
-        now(),
-        now()
+        Carbon::now()->timezone(config('app.timezone')),
+        Carbon::now()->timezone(config('app.timezone'))
     ]);
 }
 
@@ -18,8 +19,8 @@ function HandlerLogError(string $message, string $route, int $user_id): void
         $message,
         $route,
         $user_id,
-        now(),
-        now()
+        Carbon::now()->timezone(config('app.timezone')),
+        Carbon::now()->timezone(config('app.timezone'))
     ]);
 }
 

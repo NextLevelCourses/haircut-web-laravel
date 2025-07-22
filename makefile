@@ -46,6 +46,8 @@ haircut-serve-port:
 	php -S localhost:8089 -t public
 haircut-serve:
 	php artisan serve
+haircut-octane:
+	php artisan octane:start --server=swoole
 #migrate schema
 haircut-migrate:
 	php artisan migrate
