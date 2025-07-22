@@ -3,6 +3,15 @@
 @section('title', 'Home')
 
 @section('content')
+    @session('success')
+        <div class="flash-data-success" data-flashdata="{{ $value }}" role="alert">
+        </div>
+    @endsession
+
+    @session('error')
+        <div class="flash-data-error" data-flashdata="{{ $value }}" role="alert">
+        </div>
+    @endsession
     <!-- Header Info Start -->
     <div class="container-xxl pt-5 pb-3">
         <div class="container">
