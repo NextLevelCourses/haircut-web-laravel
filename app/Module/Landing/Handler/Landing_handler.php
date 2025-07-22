@@ -154,4 +154,14 @@ class Landing_handler extends Landing_domain implements Landing_interface
             return $t->getMessage();
         }
     }
+
+    public function ViewForgot(): View
+    {
+        return view('module.forgot');
+    }
+
+    public function ViewResetFrom(): View
+    {
+        return view('module.reset_from');
+    }
 }

@@ -4,6 +4,8 @@ use App\Module\Landing\Handler\Landing_handler;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Landing_handler::class, 'index'])->name('Landing.index');
+Route::get('/forgot', [Landing_handler::class, 'ViewForgot'])->name('Landing.forgot');
+Route::get('/reset_from', [Landing_handler::class, 'ViewResetFrom'])->name('Landing.reset_from');
 Route::prefix('contact')->group(function () {
     Route::get('/', [Landing_handler::class, 'contact'])->name('Landing.contact');
     Route::post('/', [Landing_handler::class, 'ContactSubmit'])->name('Landing.contact_submit');
