@@ -10,13 +10,17 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-secondary p-5 rounded shadow">
 
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                        @session('success')
+                            <div class="flash-data-success" data-flashdata="{{ $value }}" role="alert">
                             </div>
-                        @endif
+                        @endsession
 
-                        <h2 class="text-uppercase text-center mb-4 text-white">Forgot Password</h2>
+                        @session('error')
+                            <div class="flash-data-error" data-flashdata="{{ $value }}" role="alert">
+                            </div>
+                        @endsession
+
+                        <h2 class="text-uppercase text-center mb-4 text-white">Lupa Password?</h2>
 
                         <form method="POST" action="{{ route('Landing.forgotPassword.submit') }}">
                             @csrf
@@ -34,7 +38,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase">
-                                Send Password Reset Link
+                                Send Forgot Password Link
                             </button>
                         </form>
 
