@@ -155,13 +155,23 @@ class Landing_handler extends Landing_domain implements Landing_interface
         }
     }
 
-    public function ViewForgot(): View
+    public function ForgotPasswordView(): View
     {
-        return view('module.forgot');
+        return view('module.forgot_password');
     }
 
-    public function ViewResetFrom(): View
+    public function ForgotPasswordSubmit()
     {
-        return view('module.reset_from');
+        //handler forgot password submit by email
+    }
+
+    public function ResetPasswordToken(string $token): View
+    {
+        return view('module.reset_password', compact('token'));
+    }
+
+    public function ResetPasswordSubmit(string $token)
+    {
+        //handler reset password submit by token
     }
 }

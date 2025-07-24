@@ -56,7 +56,7 @@
                                         Remember Me
                                     </label> --}}
                                 </div>
-                                <a href="#" class="text-white">Forgot Password?</a>
+                                <a href="{{ route('Landing.forgotPassword.view') }}" class="text-white">Forgot Password?</a>
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase">Login</button>

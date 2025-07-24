@@ -1,4 +1,4 @@
-@extends('landingpage.auth.layout')
+@extends('layouts.user.master')
 
 @section('title', 'Forgot Password')
 
@@ -18,13 +18,19 @@
 
                         <h2 class="text-uppercase text-center mb-4 text-white">Forgot Password</h2>
 
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{ route('Landing.forgotPassword.submit') }}">
                             @csrf
 
                             <div class="mb-4">
                                 <label for="email" class="form-label text-white text-uppercase">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-control border-0 py-3"
-                                       placeholder="Enter your email" required>
+                                <input type="email" id="email" name="email"
+                                    class="form-control @if ($errors->has('email')) is-invalid @elseif(old('email') || isset($email)) is-valid @endif border-0 py-3"
+                                    placeholder="Enter your email">
+                                @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase">
@@ -34,7 +40,7 @@
 
                         <p class="mt-4 text-white text-center">
                             Remembered your password?
-                            <a href="#" class="text-primary">Login here</a>
+                            <a href="{{ route('user.login') }}" class="text-primary">Login here</a>
                         </p>
                     </div>
                 </div>
