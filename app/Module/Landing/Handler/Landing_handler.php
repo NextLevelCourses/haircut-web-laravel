@@ -162,6 +162,11 @@ class Landing_handler extends Landing_domain implements Landing_interface
 
     public function ForgotPasswordSubmit()
     {
+        $this->HandlerValidateForm($this->request, FORGOT_PASSWORD_RULES, FORGOT_PASSWORD_MESSAGE);
+        try {
+        } catch (\Throwable $t) {
+            return $t->getMessage();
+        }
         //handler forgot password submit by email
     }
 
