@@ -172,9 +172,11 @@ class Landing_handler extends Landing_domain implements Landing_interface
         //handler forgot password submit by email
     }
 
-    public function ResetPasswordToken(string $token): View
+    public function ResetPasswordToken(string $token): View|RedirectResponse
     {
-        return view('module.reset_password', compact('token'));
+        return MainResetPasswordTokenCase($token) ?
+            view('module.reset_password', compact('token'))
+            : redirect()->route(REDIRECT_HOME)->with('error', FORGOT_PASSWORD_EXPIRED);
     }
 
     public function ResetPasswordSubmit(string $token)

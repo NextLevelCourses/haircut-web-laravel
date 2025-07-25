@@ -20,6 +20,6 @@ interface Landing_interface
     public function ContactSubmit();
     public function ForgotPasswordView(): View;
     public function ForgotPasswordSubmit();
-    public function ResetPasswordToken(string $token): View;
+    public function ResetPasswordToken(string $token): View|RedirectResponse;
     public function ResetPasswordSubmit(string $token);
 }

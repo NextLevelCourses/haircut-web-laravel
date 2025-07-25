@@ -419,21 +419,15 @@
     <!-- Testimonial End -->
 
     <!-- Alert Success/Error -->
-    @if (session('success'))
-        <div class="alert alert-success mt-4">
-            {{ session('success') }}
+    @session('success')
+        <div class="flash-data-success" data-flashdata="{{ $value }}" role="alert">
         </div>
-    @endif
+    @endsession
 
-    @if ($errors->any())
-        <div class="alert alert-danger mt-4">
-            <ul class="mb-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+    @session('error')
+        <div class="flash-data-error" data-flashdata="{{ $value }}" role="alert">
         </div>
-    @endif
+    @endsession
 
     <!-- Contact Form End -->
 @endsection

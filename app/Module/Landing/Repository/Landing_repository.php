@@ -31,3 +31,8 @@ function RepositoryResetPasswordSubmit(string $email, string $token, string $ip,
         $created_at
     ]);
 }
+
+function RepositoryValidateTokenExpire(string $token): array
+{
+    return DB::select('SELECT * FROM password_reset_tokens where token = ?', [$token]);
+}
