@@ -164,6 +164,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
     {
         $this->HandlerValidateForm($this->request, FORGOT_PASSWORD_RULES, FORGOT_PASSWORD_MESSAGE);
         try {
+            MainForgotPasswordSubmitCase($this->request->email, $this->request->ip(), $this->request->header('User-Agent'));
+            return redirect()->route(REDIRECT_BACK_FORGOT_PASSWORD)->with('success', FORGOT_PASSWORD_SUCCESS);
         } catch (\Throwable $t) {
             return $t->getMessage();
         }

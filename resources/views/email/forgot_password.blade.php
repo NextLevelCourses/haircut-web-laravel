@@ -313,7 +313,7 @@
                                                                                                 Welcome <span class=t13
                                                                                                     style="margin:0;Margin:0;mso-line-height-rule:exactly;"><span
                                                                                                         class=t12
-                                                                                                        style="margin:0;Margin:0;font-weight:700;mso-line-height-rule:exactly;">name@email.com</span></span>
+                                                                                                        style="margin:0;Margin:0;font-weight:700;mso-line-height-rule:exactly;">{{ $email }}</span></span>
                                                                                                 silahkan untuk mengclick
                                                                                                 tombol reset password
                                                                                                 dibawah ini untuk
@@ -481,12 +481,7 @@
                                                                                                                                                                         <span
                                                                                                                                                                             class=t30
                                                                                                                                                                             style="margin:0;Margin:0;font-weight:bold;mso-line-height-rule:exactly;">When
-                                                                                                                                                                        </span>Sun,
-                                                                                                                                                                        Mar
-                                                                                                                                                                        24,
-                                                                                                                                                                        2022,
-                                                                                                                                                                        3:18
-                                                                                                                                                                        PM
+                                                                                                                                                                        </span>{{ $date_time }}
                                                                                                                                                                     </p>
                                                                                                                                                                 </td>
                                                                                                                                                             </tr>
@@ -531,10 +526,8 @@
                                                                                                                                                                         style="margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">
                                                                                                                                                                         <span
                                                                                                                                                                             class=t36
-                                                                                                                                                                            style="margin:0;Margin:0;font-weight:bold;mso-line-height-rule:exactly;">Where
-                                                                                                                                                                        </span>Illinious,
-                                                                                                                                                                        United
-                                                                                                                                                                        States
+                                                                                                                                                                            style="margin:0;Margin:0;font-weight:bold;mso-line-height-rule:exactly;">IP
+                                                                                                                                                                        </span>{{ $ip }}
                                                                                                                                                                     </p>
                                                                                                                                                                 </td>
                                                                                                                                                             </tr>
@@ -581,9 +574,7 @@
                                                                                                                                                                             class=t43
                                                                                                                                                                             style="margin:0;Margin:0;font-weight:bold;mso-line-height-rule:exactly;">Device
                                                                                                                                                                             Type
-                                                                                                                                                                        </span>Chrome
-                                                                                                                                                                        using
-                                                                                                                                                                        Mac
+                                                                                                                                                                        </span>{{ $device }}
                                                                                                                                                                     </p>
                                                                                                                                                                 </td>
                                                                                                                                                             </tr>
@@ -652,10 +643,11 @@
                                                                                                                                                             <tr>
                                                                                                                                                                 <td class=t55
                                                                                                                                                                     style="overflow:hidden;background-color:#FF595F;text-align:center;line-height:24px;mso-line-height-rule:exactly;mso-text-raise:2px;padding:18px 14px 18px 14px;border-radius:4px 4px 4px 4px;">
-                                                                                                                                                                    <span
-                                                                                                                                                                        class=t54
-                                                                                                                                                                        style="display:block;margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:24px;font-weight:700;font-style:normal;font-size:16px;text-decoration:none;direction:ltr;color:#FFFFFF;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px;">RESET
-                                                                                                                                                                        PASSWORD</span>
+                                                                                                                                                                    <a
+                                                                                                                                                                        href="{{ $url }}"><span
+                                                                                                                                                                            class=t54
+                                                                                                                                                                            style="display:block;margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:24px;font-weight:700;font-style:normal;font-size:16px;text-decoration:none;direction:ltr;color:#FFFFFF;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px;">RESET
+                                                                                                                                                                            PASSWORD</span></a>
                                                                                                                                                                 </td>
                                                                                                                                                             </tr>
                                                                                                                                                         </table>
