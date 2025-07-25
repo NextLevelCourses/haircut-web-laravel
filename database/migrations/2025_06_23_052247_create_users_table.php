@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('token');
             $table->string('ip');
             $table->string('device');
-            $table->date('expired_at');
+            $table->dateTime('expired_at');
             $table->boolean('revoke')->default(false);
             $table->timestamps();
         });
