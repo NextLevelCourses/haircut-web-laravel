@@ -26,7 +26,7 @@ function MainForgotPasswordSubmitCase(
     $token = Str::random(20);
     $link = config('app.url');
     $url = "{$link}/reset/{$token}/password";
-    $expired_at = Carbon::now()->timezone(config('app.timezone'))->addHour(2)->format('Y-m-d H:i:s');
+    $expired_at = Carbon::now()->timezone(config('app.timezone'))->addDays(1)->format('Y-m-d H:i:s');
     RepositoryResetPasswordSubmit($email, $token, $ip, $device, $expired_at, now());
     Mail::to($email)->send(new Forgot_password_mail($email, $url, $ip, $device, now()));
 }
