@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 function RepositoryContactSubmit(
     string $name,
@@ -32,7 +33,17 @@ function RepositoryResetPasswordSubmit(string $email, string $token, string $ip,
     ]);
 }
 
-function RepositoryValidateTokenExpire(string $token): array
+function RepositoryValidateToken(string $token): array
 {
     return DB::select('SELECT * FROM password_reset_tokens where token = ?', [$token]);
+}
+
+function RepositoryResetPasswordByEmail(string $email, string $password): void
+{
+    DB::update('UPDATE users SET password = ?, updated_at = ? WHERE email = ?', [Hash::make($password), now(), $email]);
+}
+
+function RepositoryRevokeTokenAfterResetPassword(string $token, int $revoke = 1): void
+{
+    DB::update('UPDATE password_reset_tokens SET `revoke` = ?, updated_at = ? WHERE token = ?', [$revoke, now(), $token]);
 }

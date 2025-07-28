@@ -281,7 +281,8 @@
                                                                                         <td class=t7>
                                                                                             <h1 class=t6
                                                                                                 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:34px;font-weight:700;font-style:normal;font-size:29px;text-decoration:none;text-transform:none;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">
-                                                                                                Forgot Password?</h1>
+                                                                                                Reset Password Success
+                                                                                            </h1>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </table>
@@ -310,15 +311,14 @@
                                                                                         <td class=t15>
                                                                                             <p class=t14
                                                                                                 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">
-                                                                                                Welcome <span class=t13
+                                                                                                Congratulation <span
+                                                                                                    class=t13
                                                                                                     style="margin:0;Margin:0;mso-line-height-rule:exactly;"><span
                                                                                                         class=t12
                                                                                                         style="margin:0;Margin:0;font-weight:700;mso-line-height-rule:exactly;">{{ $email }}</span></span>
-                                                                                                silahkan untuk mengclick
-                                                                                                tombol reset password
-                                                                                                dibawah ini untuk
-                                                                                                mengubah password lama
-                                                                                                anda</p>
+                                                                                                silahkan untuk login
+                                                                                                menggunakan password
+                                                                                                baru anda</p>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </table>
@@ -406,8 +406,9 @@
                                                                                                                                                                         style="margin:0;Margin:0;font-family:Lato,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">
                                                                                                                                                                         <span
                                                                                                                                                                             class=t20
-                                                                                                                                                                            style="margin:0;Margin:0;font-weight:bold;mso-line-height-rule:exactly;">Changed
-                                                                                                                                                                            password</span>
+                                                                                                                                                                            style="margin:0;Margin:0;font-weight:bold;mso-line-height-rule:exactly;">New
+                                                                                                                                                                            password</span>:
+                                                                                                                                                                        {{ $new_password }}
                                                                                                                                                                     </p>
                                                                                                                                                                 </td>
                                                                                                                                                             </tr>
@@ -646,8 +647,7 @@
                                                                                                                                                                     <a
                                                                                                                                                                         href="{{ $url }}"><span
                                                                                                                                                                             class=t54
-                                                                                                                                                                            style="display:block;margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:24px;font-weight:700;font-style:normal;font-size:16px;text-decoration:none;direction:ltr;color:#FFFFFF;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px;">RESET
-                                                                                                                                                                            PASSWORD</span></a>
+                                                                                                                                                                            style="display:block;margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:24px;font-weight:700;font-style:normal;font-size:16px;text-decoration:none;direction:ltr;color:#FFFFFF;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px;">LOGIN</span></a>
                                                                                                                                                                 </td>
                                                                                                                                                             </tr>
                                                                                                                                                         </table>
@@ -799,7 +799,8 @@
                                                                                                                                                                     akun
                                                                                                                                                                     anda
                                                                                                                                                                     menjadi
-                                                                                                                                                                    secure,dan
+                                                                                                                                                                    secure,
+                                                                                                                                                                    dan
                                                                                                                                                                     token
                                                                                                                                                                     reset
                                                                                                                                                                     password

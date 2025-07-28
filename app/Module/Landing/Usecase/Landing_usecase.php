@@ -1,9 +1,9 @@
 <?php
 
 use App\Mail\Forgot_password_mail;
+use App\Mail\Success_reset_password_mail;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
 
 require base_path('app/Module/Landing/Repository/Landing_repository.php'); //repository
@@ -34,10 +34,20 @@ function MainForgotPasswordSubmitCase(
 
 function MainResetPasswordTokenCase(string $token): bool
 {
-    $token = RepositoryValidateTokenExpire($token);
+    $token = RepositoryValidateToken($token);
+    //token harus ada dan gak kena revoke then true
     if (!empty($token) && $token[0]->revoke != 1) {
         return true;
     }
 
     return false;
+}
+
+function MainResetPasswordSubmitCase(string $token, string $password, string $url, string $ip, string $device): void
+{
+    $token = RepositoryValidateToken($token)[0];
+    RepositoryResetPasswordByEmail($token->email, $password);
+    RepositoryRevokeTokenAfterResetPassword($token->token);
+    //send mail success information reset password
+    Mail::to($token->email)->send(new Success_reset_password_mail($token->email, $url, $ip, $device, now(), $password));
 }

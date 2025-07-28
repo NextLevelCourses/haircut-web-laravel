@@ -25,7 +25,13 @@
                             <div class="mb-3 position-relative">
                                 <label for="password" class="form-label text-white text-uppercase">New Password</label>
                                 <input type="password" id="password" name="password"
-                                    class="form-control border-0 py-3 pe-5" placeholder="Enter new password" required>
+                                    class="form-control @if ($errors->has('password')) is-invalid @elseif(old('password') || isset($password)) is-valid @endif border-0 py-3 pe-5"
+                                    placeholder="Enter new password">
+                                @error('password')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 <span class="position-absolute top-50 end-0 translate-middle-y pe-3" style="cursor:pointer;"
                                     onclick="togglePassword('password', this)">
                                     <i class="fa fa-eye text-white"></i>
@@ -37,7 +43,13 @@
                                 <label for="password-confirm" class="form-label text-white text-uppercase">Confirm
                                     Password</label>
                                 <input type="password" id="password-confirm" name="password_confirmation"
-                                    class="form-control border-0 py-3 pe-5" placeholder="Confirm new password" required>
+                                    class="form-control @if ($errors->has('password_confirmation')) is-invalid @elseif(old('password_confirmation') || isset($password_confirmation)) is-valid @endif border-0 py-3 pe-5"
+                                    placeholder="Enter confirm new password">
+                                @error('password_confirmation')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 <span class="position-absolute top-50 end-0 translate-middle-y pe-3" style="cursor:pointer;"
                                     onclick="togglePassword('password-confirm', this)">
                                     <i class="fa fa-eye text-white"></i>
