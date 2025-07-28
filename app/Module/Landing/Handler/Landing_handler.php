@@ -183,7 +183,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
     {
         $this->HandlerValidateForm($this->request, RESET_PASSWORD_RULES, RESET_PASSWORD_MESSAGE);
         try {
-            MainResetPasswordSubmitCase($token, $this->request->password, REDIRECT_BACK_LOGIN, $this->request->ip(), $this->request->header('User-Agent'));
+            $url = config('app.url') . '/login';
+            MainResetPasswordSubmitCase($token, $this->request->password, $url, $this->request->ip(), $this->request->header('User-Agent'));
             return redirect()->route(REDIRECT_BACK_LOGIN)->with('success', RESET_PASSWORD_SUCCESS);
         } catch (\Throwable $t) {
             return $t->getMessage();
