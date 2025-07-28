@@ -155,13 +155,39 @@ class Landing_handler extends Landing_domain implements Landing_interface
         }
     }
 
-    public function ViewForgot(): View
+    public function ForgotPasswordView(): View
     {
-        return view('module.forgot');
+        return view('module.forgot_password');
     }
 
-    public function ViewResetFrom(): View
+    public function ForgotPasswordSubmit()
     {
-        return view('module.reset_from');
+        $this->HandlerValidateForm($this->request, FORGOT_PASSWORD_RULES, FORGOT_PASSWORD_MESSAGE);
+        try {
+            MainForgotPasswordSubmitCase($this->request->email, $this->request->ip(), $this->request->header('User-Agent'));
+            return redirect()->route(REDIRECT_BACK_FORGOT_PASSWORD)->with('success', FORGOT_PASSWORD_SUCCESS);
+        } catch (\Throwable $t) {
+            return $t->getMessage();
+        }
+        //handler forgot password submit by email
+    }
+
+    public function ResetPasswordToken(string $token): View|RedirectResponse
+    {
+        return MainResetPasswordTokenCase($token) ?
+            view('module.reset_password', compact('token'))
+            : redirect()->route(REDIRECT_HOME)->with('error', FORGOT_PASSWORD_EXPIRED);
+    }
+
+    public function ResetPasswordSubmit(string $token)
+    {
+        $this->HandlerValidateForm($this->request, RESET_PASSWORD_RULES, RESET_PASSWORD_MESSAGE);
+        try {
+            $url = config('app.url') . '/login';
+            MainResetPasswordSubmitCase($token, $this->request->password, $url, $this->request->ip(), $this->request->header('User-Agent'));
+            return redirect()->route(REDIRECT_BACK_LOGIN)->with('success', RESET_PASSWORD_SUCCESS);
+        } catch (\Throwable $t) {
+            return $t->getMessage();
+        }
     }
 }

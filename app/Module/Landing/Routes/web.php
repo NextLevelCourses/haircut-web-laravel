@@ -4,8 +4,14 @@ use App\Module\Landing\Handler\Landing_handler;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Landing_handler::class, 'index'])->name('Landing.index');
-Route::get('/forgot', [Landing_handler::class, 'ViewForgot'])->name('Landing.forgot');
-Route::get('/reset_from', [Landing_handler::class, 'ViewResetFrom'])->name('Landing.reset_from');
+Route::prefix('forgot')->group(function () {
+    Route::get('/password', [Landing_handler::class, 'ForgotPasswordView'])->name('Landing.forgotPassword.view');
+    Route::post('/submit', [Landing_handler::class, 'ForgotPasswordSubmit'])->name('Landing.forgotPassword.submit');
+});
+Route::prefix('reset')->group(function () {
+    Route::get('/{token}/password', [Landing_handler::class, 'ResetPasswordToken'])->name('Landing.resetPassword.token');
+    Route::post('/{token}/submit', [Landing_handler::class, 'ResetPasswordSubmit'])->name('Landing.resetPassword.submit');
+});
 Route::prefix('contact')->group(function () {
     Route::get('/', [Landing_handler::class, 'contact'])->name('Landing.contact');
     Route::post('/', [Landing_handler::class, 'ContactSubmit'])->name('Landing.contact_submit');

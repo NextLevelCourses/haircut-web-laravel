@@ -49,7 +49,11 @@
 
 
     <!-- Navbar Start -->
-    @if (!Request::is('login') && !Request::is('register'))
+    @if (
+        !Request::is('login') &&
+            !Request::is('register') &&
+            !Request::is('forgot/password') &&
+            !Request::is('reset/*/password'))
         @include('layouts.user.navbar')
     @endif
 
@@ -61,7 +65,11 @@
 
 
     <!-- Footer Start -->
-    @if (!Request::is('login') && !Request::is('register'))
+    @if (
+        !Request::is('login') &&
+            !Request::is('register') &&
+            !Request::is('forgot/password') &&
+            !Request::is('reset/*/password'))
         @include('layouts.user.footer')
     @endif
     <!-- Footer End -->
