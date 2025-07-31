@@ -73,7 +73,9 @@
                 <!-- Gambar & Pengalaman -->
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column">
-                        <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}" alt="">
+                        <img class="img-fluid w-75 align-self-end"
+                            src="{{ !empty($data['about_us']->image) ? $data['about_us']->image : 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' }}"
+                            alt="">
                         <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
                             <h1 class="text-uppercase text-primary mb-3">{{ $data['about_us']->experience }} Years</h1>
                             <h2 class="text-uppercase mb-0">Experience</h2>
