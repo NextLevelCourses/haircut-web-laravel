@@ -88,8 +88,6 @@
                     <p>{{ $data['about_us']->description_title }}</p>
                     {{-- <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap
                         minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p> --}}
-
-                    <!-- Statistik dan rating -->
                     <div class="row g-4">
                         <div class="col-md-6">
                             <h3 class="text-uppercase mb-3">Since {{ $data['about_us']->since }}</h3>
