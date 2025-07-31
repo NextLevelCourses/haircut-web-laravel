@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('no_hp')->unique();
             $table->string('email')->unique();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
+            $table->string('photo')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('ig')->nullable();
+            $table->string('twitter')->nullable();
             $table->timestamps();
         });
     }

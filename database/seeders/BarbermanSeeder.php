@@ -30,7 +30,7 @@ class BarbermanSeeder extends Seeder
                 'name' => 'Sie Doe',
                 'genders_id' => 2,
                 'price' => 50000,
-                'services_id' => 1,
+                'services_id' => 2,
                 'rating' => 4,
                 'no_hp' => '081804228932',
                 'email' => 'dummy2@gmail.com',

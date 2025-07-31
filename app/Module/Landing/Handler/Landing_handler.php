@@ -33,7 +33,15 @@ class Landing_handler extends Landing_domain implements Landing_interface
     {
         return array(
             'about_us' => DB::select("SELECT * FROM about_us")[0], //first data
-            'service' => DB::select("SELECT * FROM services")
+            'service' => DB::select("SELECT * FROM services"),
+            'barberman' => DB::select("SELECT barbermans.*,
+                services.name AS service_name,
+                genders.name AS gender_name
+            FROM barbermans
+                INNER JOIN services ON barbermans.services_id = services.id
+                INNER JOIN genders ON barbermans.genders_id = genders.id
+            ORDER BY barbermans.id ASC
+            ")
         );
     }
     /**
