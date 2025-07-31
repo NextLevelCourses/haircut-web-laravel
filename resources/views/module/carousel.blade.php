@@ -118,21 +118,23 @@
             </div>
         </div>
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
-                        style="width: 60px; height: 60px;">
-                        <img class="img-fluid" src="{{ asset('assets/img/haircut.png') }}" alt="">
+            @foreach ($data['service'] as $item)
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                        <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                            style="width: 60px; height: 60px;">
+                            <img class="img-fluid" src="{{ asset('assets/img/haircut.png') }}" alt="">
+                        </div>
+                        <div class="ps-4">
+                            <h3 class="text-uppercase mb-3">{{ $item->name }}</h3>
+                            <p>{{ $item->description }}</p>
+                            {{-- <span class="text-uppercase text-primary">From $15</span> --}}
+                        </div>
+                        <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                     </div>
-                    <div class="ps-4">
-                        <h3 class="text-uppercase mb-3">Haircut</h3>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
-                        <span class="text-uppercase text-primary">From $15</span>
-                    </div>
-                    <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            @endforeach
+            {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
                     <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
                         style="width: 60px; height: 60px;">
@@ -201,7 +203,7 @@
                     </div>
                     <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     </div>
