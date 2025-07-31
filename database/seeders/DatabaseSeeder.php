@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             BarbermanSeeder::class,
             ScheduleBabermanSeeder::class,
-            AboutSeeder::class
+            AboutSeeder::class,
+            WorkingHourSeeder::class
         ]);
     }
 }
