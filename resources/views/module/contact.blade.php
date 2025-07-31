@@ -1,4 +1,4 @@
-@extends('layouts.user.master')
+@extends('layouts.user.master', ['about_us' => $data['about_us']])
 
 @section('title', 'Home')
 

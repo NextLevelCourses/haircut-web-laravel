@@ -148,7 +148,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
 
     public function Contact(): View
     {
-        return view('module.contact');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.contact', compact('data'));
     }
 
     /**
