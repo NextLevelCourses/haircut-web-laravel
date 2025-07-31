@@ -32,7 +32,7 @@ class Landing_handler extends Landing_domain implements Landing_interface
     public function HandlerMapDataLanding(): array
     {
         return array(
-            'about_us' => DB::select("SELECT * FROM about_us")[0], //first data
+            'about_us' => DB::select("SELECT * FROM about_us"),
             'service' => DB::select("SELECT * FROM services"),
             'working_hour' => DB::select("SELECT * FROM working_hour"),
             'barberman' => DB::select("SELECT barbermans.*,

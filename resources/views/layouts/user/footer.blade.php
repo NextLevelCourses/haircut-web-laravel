@@ -9,19 +9,19 @@
                     <div class="btn-square bg-dark flex-shrink-0 me-3">
                         <span class="fa fa-map-marker-alt text-primary"></span>
                     </div>
-                    <span>{{ $about->location }}</span>
+                    <span>{{ !empty($about[0]->location) ? $about[0]->location : '-' }}</span>
                 </div>
                 <div class="d-flex align-items-center mb-2">
                     <div class="btn-square bg-dark flex-shrink-0 me-3">
                         <span class="fa fa-phone-alt text-primary"></span>
                     </div>
-                    <span>{{ $about->work_phone }}</span>
+                    <span>{{ !empty($about[0]->work_phone) ? $about[0]->work_phone : '-' }}</span>
                 </div>
                 <div class="d-flex align-items-center">
                     <div class="btn-square bg-dark flex-shrink-0 me-3">
                         <span class="fa fa-envelope-open text-primary"></span>
                     </div>
-                    <span>{{ $about->work_email }}</span>
+                    <span>{{ !empty($about[0]->work_email) ? $about[0]->work_email : '-' }}</span>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
