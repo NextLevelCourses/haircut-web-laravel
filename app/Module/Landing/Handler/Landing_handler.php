@@ -42,6 +42,12 @@ class Landing_handler extends Landing_domain implements Landing_interface
                 INNER JOIN services ON barbermans.services_id = services.id
                 INNER JOIN genders ON barbermans.genders_id = genders.id
             ORDER BY barbermans.id ASC
+            "),
+            'testimoni' => DB::select("SELECT testimoni.*,
+                users.name AS user_name
+            FROM testimoni
+                INNER JOIN users ON testimoni.users_id = users.id
+            ORDER BY testimoni.id ASC
             ")
         );
     }
