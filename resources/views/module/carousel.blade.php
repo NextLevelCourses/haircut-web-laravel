@@ -209,7 +209,7 @@
     <!-- Service End -->
 
 
-    <!-- Price Start -->
+    {{-- <!-- Price Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-0">
@@ -253,7 +253,7 @@
             </div>
         </div>
     </div>
-    <!-- Price End -->
+    <!-- Price End --> --}}
 
 
     <!-- Team Start -->
