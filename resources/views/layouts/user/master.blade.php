@@ -70,7 +70,7 @@
             !Request::is('register') &&
             !Request::is('forgot/password') &&
             !Request::is('reset/*/password'))
-        @include('layouts.user.footer')
+        @include('layouts.user.footer', ['about' => $about_us])
     @endif
     <!-- Footer End -->
 
