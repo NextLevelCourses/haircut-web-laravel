@@ -75,7 +75,7 @@
                     <div class="d-flex flex-column">
                         <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}" alt="">
                         <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
-                            <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
+                            <h1 class="text-uppercase text-primary mb-3">{{ $data['about_us']->experience }} Years</h1>
                             <h2 class="text-uppercase mb-0">Experience</h2>
                         </div>
                     </div>
@@ -84,21 +84,20 @@
                 <!-- Konten About -->
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
-                    <h1 class="text-uppercase mb-4">A Comfortable Place to Redefine Your Style</h1>
-                    <p>Kami adalah barbershop dengan sentuhan modern dan nuansa klasik. Dengan tempat yang bersih, nyaman,
-                        serta barber yang profesional, kami hadir untuk memberi pengalaman cukur rambut terbaik.</p>
-                    <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap
-                        minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p>
+                    <h1 class="text-uppercase mb-4">{{ $data['about_us']->title }}</h1>
+                    <p>{{ $data['about_us']->description_title }}</p>
+                    {{-- <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap
+                        minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p> --}}
 
                     <!-- Statistik dan rating -->
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <h3 class="text-uppercase mb-3">Since 1998</h3>
-                            <p class="mb-0">Telah melayani ribuan pelanggan dengan konsistensi dan kualitas tinggi.</p>
+                            <h3 class="text-uppercase mb-3">Since {{ $data['about_us']->since }}</h3>
+                            <p class="mb-0">{{ $data['about_us']->description_since }}.</p>
                         </div>
                         <div class="col-md-6">
-                            <h3 class="text-uppercase mb-3">1.500+ Happy Clients</h3>
-                            <p class="mb-0">Banyak pelanggan yang kembali secara rutin dan memberikan testimoni positif.
+                            <h3 class="text-uppercase mb-3">{{ $data['about_us']->client }}</h3>
+                            <p class="mb-0">{{ $data['about_us']->description_client }}.
                             </p>
                         </div>
                     </div>

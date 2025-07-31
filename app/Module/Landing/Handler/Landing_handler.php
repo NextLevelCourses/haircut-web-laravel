@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Module\Landing\Domain\Landing_domain;
 use App\Module\Landing\Interface\Landing_interface;
+use Illuminate\Support\Facades\DB;
 
 //import
 require base_path('app/Module/Landing/Constant/Landing_constant.php'); //constant
@@ -27,6 +28,13 @@ class Landing_handler extends Landing_domain implements Landing_interface
     {
         return Auth::guard($guard);
     }
+
+    public function HandlerMapDataLanding(): array
+    {
+        return array(
+            'about_us' => DB::select("SELECT * FROM about_us")[0] //first data
+        );
+    }
     /**
      * @method index
      * @return View|RedirectResponse
@@ -35,7 +43,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
     public function Index(): View|RedirectResponse
     {
         if (!$this->HandlerSessionGuard('user')->check()) {
-            return view('module.carousel');
+            $data = $this->HandlerMapDataLanding();
+            return view('module.carousel', compact('data'));
         }
         return redirect()->route(REDIRECT_BACK_SERVICE)->with('error', 'anda sudah login silahkan lanjutkan ke booking');
     }
