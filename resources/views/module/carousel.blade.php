@@ -1,4 +1,4 @@
-@extends('layouts.user.master')
+@extends('layouts.user.master', ['about_us' => $data['about_us']])
 
 @section('title', 'Home')
 
@@ -67,73 +67,79 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div id="aboutus" class="container">
-            <div class="row g-5">
-                <!-- Gambar & Pengalaman -->
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column">
-                        <img class="img-fluid w-75 align-self-end" src="{{ asset('assets/img/about.jpg') }}" alt="">
-                        <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
-                            <h1 class="text-uppercase text-primary mb-3">25 Years</h1>
-                            <h2 class="text-uppercase mb-0">Experience</h2>
+    @if (!empty($data['about_us']))
+        <div class="container-xxl py-5">
+            <div id="aboutus" class="container">
+                <div class="row g-5">
+                    <!-- Gambar & Pengalaman -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="d-flex flex-column">
+                            <img class="img-fluid w-75 align-self-end"
+                                src="{{ !empty($data['about_us'][0]->image) ? $data['about_us'][0]->image : 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' }}"
+                                alt="">
+                            <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
+                                <h1 class="text-uppercase text-primary mb-3">{{ $data['about_us'][0]->experience }} Years
+                                </h1>
+                                <h2 class="text-uppercase mb-0">Experience</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Konten About -->
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
-                    <h1 class="text-uppercase mb-4">A Comfortable Place to Redefine Your Style</h1>
-                    <p>Kami adalah barbershop dengan sentuhan modern dan nuansa klasik. Dengan tempat yang bersih, nyaman,
-                        serta barber yang profesional, kami hadir untuk memberi pengalaman cukur rambut terbaik.</p>
-                    <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap
-                        minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p>
-
-                    <!-- Statistik dan rating -->
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h3 class="text-uppercase mb-3">Since 1998</h3>
-                            <p class="mb-0">Telah melayani ribuan pelanggan dengan konsistensi dan kualitas tinggi.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="text-uppercase mb-3">1.500+ Happy Clients</h3>
-                            <p class="mb-0">Banyak pelanggan yang kembali secara rutin dan memberikan testimoni positif.
-                            </p>
+                    <!-- Konten About -->
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <p class="d-inline-block bg-secondary text-primary py-1 px-4">About Us</p>
+                        <h1 class="text-uppercase mb-4">{{ $data['about_us'][0]->title }}</h1>
+                        <p>{{ $data['about_us'][0]->description_title }}</p>
+                        {{-- <p class="mb-4">Lokasi kami sering dijadikan tempat event komunitas dan kunjungan klien tetap. Setiap
+                        minggu kami menerima kunjungan dari pelanggan tetap, termasuk artis lokal dan tokoh komunitas.</p> --}}
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h3 class="text-uppercase mb-3">Since {{ $data['about_us'][0]->since }}</h3>
+                                <p class="mb-0">{{ $data['about_us'][0]->description_since }}.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="text-uppercase mb-3">{{ $data['about_us'][0]->client }}</h3>
+                                <p class="mb-0">{{ $data['about_us'][0]->description_client }}.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+
 
     <!-- About End -->
 
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div id="services" class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block bg-secondary text-primary py-1 px-4">Services</p>
-                <h1 class="text-uppercase">What We Provide</h1>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                    <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
-                        style="width: 60px; height: 60px;">
-                        <img class="img-fluid" src="{{ asset('assets/img/haircut.png') }}" alt="">
-                    </div>
-                    <div class="ps-4">
-                        <h3 class="text-uppercase mb-3">Haircut</h3>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam.</p>
-                        <span class="text-uppercase text-primary">From $15</span>
-                    </div>
-                    <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+    @if (!empty($data['service']))
+        <div class="container-xxl py-5">
+            <div id="services" class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">Services</p>
+                    <h1 class="text-uppercase">What We Provide</h1>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="row g-4">
+                @foreach ($data['service'] as $item)
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                            <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
+                                style="width: 60px; height: 60px;">
+                                <img class="img-fluid" src="{{ asset('assets/img/haircut.png') }}" alt="">
+                            </div>
+                            <div class="ps-4">
+                                <h3 class="text-uppercase mb-3">{{ $item->name }}</h3>
+                                <p>{{ $item->description }}</p>
+                                {{-- <span class="text-uppercase text-primary">From $15</span> --}}
+                            </div>
+                            <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
+                        </div>
+                    </div>
+                @endforeach
+                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
                     <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center"
                         style="width: 60px; height: 60px;">
@@ -202,14 +208,16 @@
                     </div>
                     <a class="btn btn-square" href=""><i class="fa fa-plus text-primary"></i></a>
                 </div>
+            </div> --}}
             </div>
         </div>
-    </div>
-    </div>
-    <!-- Service End -->
+        </div>
+        <!-- Service End -->
+    @endif
 
 
-    <!-- Price Start -->
+
+    {{-- <!-- Price Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-0">
@@ -253,34 +261,42 @@
             </div>
         </div>
     </div>
-    <!-- Price End -->
+    <!-- Price End --> --}}
 
 
     <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div id="barberman" class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block bg-secondary text-primary py-1 px-4">Our Barber</p>
-                <h1 class="text-uppercase">Meet Our Barber</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('assets/img/team-1.jpg') }}" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+    @if (!empty($data['barberman']))
+        <div class="container-xxl py-5">
+            <div id="barberman" class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">Our Barber</p>
+                    <h1 class="text-uppercase">Meet Our Barber</h1>
+                </div>
+                <div class="row g-4">
+                    @foreach ($data['barberman'] as $item)
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item">
+                                <div class="team-img position-relative overflow-hidden">
+                                    <img class="img-fluid"
+                                        src="{{ !empty($item->photo) ? $item->photo : 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' }}"
+                                        alt="">
+                                    <div class="team-social">
+                                        <a class="btn btn-square" href="{{ $item->fb }}"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-square" href="{{ $item->twitter }}"><i
+                                                class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-square" href="{{ $item->ig }}"><i
+                                                class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                                <div class="bg-secondary text-center p-4">
+                                    <h5 class="text-uppercase">{{ $item->name }}</h5>
+                                    <span class="text-primary">{{ $item->service_name }}</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h5 class="text-uppercase">Barber Name</h5>
-                            <span class="text-primary">Designation</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    @endforeach
+                    {{-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item">
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{ asset('assets/img/team-2.jpg') }}" alt="">
@@ -327,32 +343,43 @@
                             <span class="text-primary">Designation</span>
                         </div>
                     </div>
+                </div> --}}
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Team End -->
+        <!-- Team End -->
+    @endif
+
 
 
     <!-- Working Hours Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="h-100">
-                        <img class="img-fluid h-100" src="{{ asset('assets/img/open.jpg') }}" alt="">
+    @if (!empty($data['working_hour']))
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="h-100">
+                            <img class="img-fluid h-100" src="{{ asset('assets/img/open.jpg') }}" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="bg-secondary h-100 d-flex flex-column justify-content-center p-5">
-                        <p class="d-inline-flex bg-dark text-primary py-1 px-4 me-auto">Working Hours</p>
-                        <h1 class="text-uppercase mb-4">Professional Barbers Are Waiting For You</h1>
-                        <div>
-                            <div class="d-flex justify-content-between border-bottom py-2">
-                                <h6 class="text-uppercase mb-0">Monday</h6>
-                                <span class="text-uppercase">09 AM - 09 PM</span>
-                            </div>
-                            <div class="d-flex justify-content-between border-bottom py-2">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="bg-secondary h-100 d-flex flex-column justify-content-center p-5">
+                            <p class="d-inline-flex bg-dark text-primary py-1 px-4 me-auto">Working Hours</p>
+                            <h1 class="text-uppercase mb-4">{{ __('Jadwal Buka Kami') }}</h1>
+                            <div>
+                                @foreach ($data['working_hour'] as $item)
+                                    <div class="d-flex justify-content-between border-bottom py-2">
+                                        <h6 class="text-uppercase mb-0">{{ $item->day }}</h6>
+                                        <span class="text-uppercase">
+                                            @if (!empty($item->start_at) && !empty($item->end_at))
+                                                {{ $item->start_at . '-' . $item->end_at }}
+                                            @else
+                                                <span class="text-uppercase text-primary">Closed</span>
+                                            @endif
+                                        </span>
+                                    </div>
+                                @endforeach
+                                {{-- <div class="d-flex justify-content-between border-bottom py-2">
                                 <h6 class="text-uppercase mb-0">Tuesday</h6>
                                 <span class="text-uppercase">09 AM - 09 PM</span>
                             </div>
@@ -371,33 +398,35 @@
                             <div class="d-flex justify-content-between py-2">
                                 <h6 class="text-uppercase mb-0">Sat / Sun</h6>
                                 <span class="text-uppercase text-primary">Closed</span>
+                            </div> --}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Working Hours End -->
+        <!-- Working Hours End -->
+    @endif
 
 
     <!-- Testimonial Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block bg-secondary text-primary py-1 px-4">Testimonial</p>
-                <h1 class="text-uppercase">What Our Clients Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center"
-                    data-dot="<img class='img-fluid' src='{{ asset('assets/img/testimonial-1.jpg') }}' alt=''>">
-                    <h4 class="text-uppercase">Client Name</h4>
-                    <p class="text-primary">Profession</p>
-                    <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore
-                        sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at
-                        rebum justo sea clita.</span>
+    @if (!empty($data['testimoni']))
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <p class="d-inline-block bg-secondary text-primary py-1 px-4">Testimonial</p>
+                    <h1 class="text-uppercase">What Our Clients Say!</h1>
                 </div>
-                <div class="testimonial-item text-center"
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    @foreach ($data['testimoni'] as $item)
+                        <div class="testimonial-item text-center"
+                            data-dot="<img class='img-fluid' src='https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' alt=''>">
+                            <h4 class="text-uppercase">{{ $item->user_name }}</h4>
+                            <p class="text-primary">{{ $item->profession }}</p>
+                            <span class="fs-5">{{ $item->content }}.</span>
+                        </div>
+                    @endforeach
+                    {{-- <div class="testimonial-item text-center"
                     data-dot="<img class='img-fluid' src='{{ asset('assets/img/testimonial-2.jpg') }}' alt=''>">
                     <h4 class="text-uppercase">Client Name</h4>
                     <p class="text-primary">Profession</p>
@@ -412,11 +441,12 @@
                     <span class="fs-5">Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore
                         sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at
                         rebum justo sea clita.</span>
+                </div> --}}
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Testimonial End -->
+        <!-- Testimonial End -->
+    @endif
 
     <!-- Alert Success/Error -->
     @session('success')

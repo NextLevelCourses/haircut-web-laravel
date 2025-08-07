@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Module\Landing\Domain\Landing_domain;
 use App\Module\Landing\Interface\Landing_interface;
+use Illuminate\Support\Facades\DB;
 
 //import
 require base_path('app/Module/Landing/Constant/Landing_constant.php'); //constant
@@ -27,6 +28,29 @@ class Landing_handler extends Landing_domain implements Landing_interface
     {
         return Auth::guard($guard);
     }
+
+    public function HandlerMapDataLanding(): array
+    {
+        return array(
+            'about_us' => DB::select("SELECT * FROM about_us"),
+            'service' => DB::select("SELECT * FROM services"),
+            'working_hour' => DB::select("SELECT * FROM working_hour"),
+            'barberman' => DB::select("SELECT barbermans.*,
+                services.name AS service_name,
+                genders.name AS gender_name
+            FROM barbermans
+                INNER JOIN services ON barbermans.services_id = services.id
+                INNER JOIN genders ON barbermans.genders_id = genders.id
+            ORDER BY barbermans.id ASC
+            "),
+            'testimoni' => DB::select("SELECT testimoni.*,
+                users.name AS user_name
+            FROM testimoni
+                INNER JOIN users ON testimoni.users_id = users.id
+            ORDER BY testimoni.id ASC
+            ")
+        );
+    }
     /**
      * @method index
      * @return View|RedirectResponse
@@ -35,7 +59,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
     public function Index(): View|RedirectResponse
     {
         if (!$this->HandlerSessionGuard('user')->check()) {
-            return view('module.carousel');
+            $data = $this->HandlerMapDataLanding();
+            return view('module.carousel', compact('data'));
         }
         return redirect()->route(REDIRECT_BACK_SERVICE)->with('error', 'anda sudah login silahkan lanjutkan ke booking');
     }
@@ -47,7 +72,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
      */
     public function Service(): View
     {
-        return view('module.service');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.service', compact('data'));
     }
 
     /**
@@ -129,7 +155,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
 
     public function Contact(): View
     {
-        return view('module.contact');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.contact', compact('data'));
     }
 
     /**
