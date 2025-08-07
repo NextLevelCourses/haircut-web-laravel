@@ -72,7 +72,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
      */
     public function Service(): View
     {
-        return view('module.service');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.service', compact('data'));
     }
 
     /**
