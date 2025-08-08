@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('barbermans_id')->references('id')->on('barbermans')->onDelete('cascade');
-            $table->date('start_at');
-            $table->date('end_at');
+            $table->date('schedule_date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->enum('status', ['available', 'booked', 'off'])->default('available');
             $table->timestamps();
         });
     }

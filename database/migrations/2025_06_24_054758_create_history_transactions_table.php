@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('history_transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('transactions_id')->references('id')->on('transactions')->onDelete('cascade');
+            $table->foreignId('appointments_id')->references('id')->on('appointments')->onDelete('cascade');
             $table->timestamps();
         });
     }

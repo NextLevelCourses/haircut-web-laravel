@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ScheduleBabermanSeeder extends Seeder
 {
@@ -16,15 +17,17 @@ class ScheduleBabermanSeeder extends Seeder
         DB::table('schedules')->insert([
             [
                 'barbermans_id' => 1,
-                'start_at' => now()->toDateString(),
-                'end_at' => now()->toDateString(),
+                'schedule_date' => Carbon::now()->format('Y-m-d'),
+                'start_time' => Carbon::now()->format('H:i:s'),
+                'end_time' => Carbon::now()->format('H:i:s'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'barbermans_id' => 2,
-                'start_at' => now()->toDateString(),
-                'end_at' => now()->toDateString(),
+                'schedule_date' => Carbon::now()->format('Y-m-d'),
+                'start_time' => Carbon::now()->format('H:i:s'),
+                'end_time' => Carbon::now()->format('H:i:s'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

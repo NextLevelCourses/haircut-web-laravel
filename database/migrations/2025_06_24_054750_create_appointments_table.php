@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('schedules_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->foreignId('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('services_id')->references('id')->on('services')->onDelete('cascade');
             $table->string('reference_code')->unique();
             $table->enum('transaction_type', ['order', 'refund']);
             $table->enum('transaction_status', ['pending', 'failed', 'cancel', 'paid', 'completed'])->default('pending');
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('appointments');
     }
 };
