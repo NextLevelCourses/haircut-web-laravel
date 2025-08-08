@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('services_id')->references('id')->on('services')->onDelete('cascade');
+            $table->foreignId('genders_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->foreignId('barbermans_id')->references('id')->on('barbermans')->onDelete('cascade');
             $table->foreignId('schedules_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->foreignId('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('services_id')->references('id')->on('services')->onDelete('cascade');
             $table->string('reference_code')->unique();
             $table->enum('transaction_type', ['order', 'refund']);
             $table->enum('transaction_status', ['pending', 'failed', 'cancel', 'paid', 'completed'])->default('pending');
