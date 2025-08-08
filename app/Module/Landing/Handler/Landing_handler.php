@@ -83,7 +83,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
      */
     public function Gender(): View
     {
-        return view('module.gender');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.gender', compact('data'));
     }
 
     /**
@@ -93,7 +94,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
      */
     public function Barberman(): View
     {
-        return view('module.barberman');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.barberman', compact('data'));
     }
 
     /**
@@ -103,7 +105,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
      */
     public function Schedule(): View
     {
-        return view('module.schedule');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.schedule', compact('data'));
     }
 
     /**
@@ -113,7 +116,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
      */
     public function Transaction(): View
     {
-        return view('module.transaction');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.transaction', compact('data'));
     }
 
     /**
@@ -123,7 +127,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
      */
     public function SuccessTransaction(): View
     {
-        return view('module.success_transaction');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.success_transaction', compact('data'));
     }
 
     /**
@@ -133,7 +138,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
      */
     public function FailedTransaction(): View
     {
-        return view('module.failed_transaction');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.failed_transaction', compact('data'));
     }
 
     /**
@@ -144,7 +150,8 @@ class Landing_handler extends Landing_domain implements Landing_interface
 
     public function Invoice(): View
     {
-        return view('module.invoice');
+        $data = $this->HandlerMapDataLanding();
+        return view('module.invoice', compact('data'));
     }
 
     /**
