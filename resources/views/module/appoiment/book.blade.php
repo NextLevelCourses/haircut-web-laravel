@@ -34,22 +34,11 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-0">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="col-lg-8 wow fadeIn" data-wow-delay="0.1s">
                     <div class="bg-secondary p-5">
-                        <p class="d-inline-block bg-dark text-primary py-1 px-4">Contact Us</p>
-                        @session('success')
-                            <div class="alert alert-success" role="alert">
-                                {{ $value }}
-                            </div>
-                        @endsession
-
-                        @session('error')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $value }}
-                            </div>
-                        @endsession
-                        <h1 class="text-uppercase mb-4">Have Any Question? Please Contact Us!</h1>
-                        <p class="mb-4">The contact form insert your name,email,subject,and also message it.
+                        <p class="d-inline-block bg-dark text-primary py-1 px-4">Booking</p>
+                        <h1 class="text-uppercase mb-4">Please field of this form booking</h1>
+                        <p class="mb-4">After field it then click order now button.
                             {{-- done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> --}}
                         </p>
                         <form method="POST" action="">
@@ -57,54 +46,67 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name"
-                                            name="name" placeholder="Your Name" value="">
-                                        {{-- @error('name')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror --}}
-                                        <label for="name">Your Name</label>
+                                        <select type="text" class="form-control bg-transparent" id="name"
+                                            name="name">
+                                            <option value="" selected disabled>Pilih Layanan</option>
+                                            <option value="">Services1</option>
+                                        </select>
+                                        <label for="name">Services</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="email"
-                                            name="email" placeholder="Your Email" value="">
-                                        {{-- @error('email')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror --}}
-                                        <label for="email">Your Email</label>
+                                        <select type="text" class="form-control bg-transparent" id="gender_select"
+                                            name="gender_select">
+                                            <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                            <option value="">Gender2</option>
+                                        </select>
+                                        <label for="gender_select">Gender</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select type="text" class="form-control bg-transparent" id="barberman_select"
+                                            name="barberman_select">
+                                            <option value="" selected disabled>Pilih Berberman</option>
+                                            <option value="">Berberman2</option>
+                                        </select>
+                                        <label for="barberman_select">Berberman</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select type="text" class="form-control bg-transparent" id="schedule_select"
+                                            name="schedule_select">
+                                            <option value="" selected disabled>Pilih Jadwal</option>
+                                            <option value="">Schedule2</option>
+                                        </select>
+                                        <label for="schedule_select">Schedule</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control  bg-transparent" id="reference_code"
+                                            name="code_reference" placeholder="Reference Code"
+                                            value="{{ $data['code_reference'] }}" readonly>
+                                        <label for="reference_code">Reference Code</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control  bg-transparent" name="subject"
-                                            id="subject" placeholder="Subject" value="">
-                                        {{-- @error('subject')
+                                        <textarea class="form-control bg-transparent" placeholder="Leave description here" id="description"
+                                            style="height: 100px" name="description"></textarea>
+                                        @error('description')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
-                                        @enderror --}}
-                                        <label for="subject">Subject</label>
+                                        @enderror
+                                        <label for="description">Description</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Leave a message here" id="message" style="height: 100px"
-                                            name="message"></textarea>
-                                        {{-- @error('message')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror --}}
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                    <button class="btn btn-primary w-50 py-3" type="submit">Order Now</button>
                                 </div>
                             </div>
                         </form>
