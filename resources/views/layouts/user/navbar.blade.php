@@ -21,8 +21,8 @@
                         <a href="#aboutus" class="nav-item nav-link">About Us</a>
                     @endif
                 @endif
-                <a href="{{ route('Landing.service') }}"
-                    class="nav-item nav-link {{ Request::is('service') ? 'active' : '' }}">Book</a>
+                <a href="{{ route('Appoiment.book') }}"
+                    class="nav-item nav-link {{ Request::is('book') ? 'active' : '' }}">Book</a>
                 <a href="{{ route('Landing.contact') }}"
                     class="nav-item nav-link {{ Request::is('contact') ? 'active' : '' }}">Contact</a>
             </div>
