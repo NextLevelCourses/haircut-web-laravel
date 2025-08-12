@@ -15,7 +15,11 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
         $str_random = Str::random(5);
         return array(
             'about_us' => DB::select("SELECT * FROM about_us"),
-            'code_reference' => "APT{$str_random}"
+            'code_reference' => "APT{$str_random}",
+            "service" => DB::select("SELECT * FROM services"),
+            "gender" => DB::select("SELECT * FROM genders"),
+            "barberman" => DB::select("SELECT * FROM barbermans"),
+            "schedule" => DB::select("SELECT * FROM schedules")
         );
     }
 

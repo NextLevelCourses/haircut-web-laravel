@@ -49,7 +49,9 @@
                                         <select type="text" class="form-control bg-transparent" id="name"
                                             name="name">
                                             <option value="" selected disabled>Pilih Layanan</option>
-                                            <option value="">Services1</option>
+                                            @foreach ($data['service'] as $service)
+                                                <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                            @endforeach
                                         </select>
                                         <label for="name">Services</label>
                                     </div>
@@ -59,7 +61,9 @@
                                         <select type="text" class="form-control bg-transparent" id="gender_select"
                                             name="gender_select">
                                             <option value="" selected disabled>Pilih Jenis Kelamin</option>
-                                            <option value="">Gender2</option>
+                                            @foreach ($data['gender'] as $gender)
+                                                <option value="{{ $gender->id }}">{{ $gender->name }}</option>
+                                            @endforeach
                                         </select>
                                         <label for="gender_select">Gender</label>
                                     </div>
@@ -69,7 +73,9 @@
                                         <select type="text" class="form-control bg-transparent" id="barberman_select"
                                             name="barberman_select">
                                             <option value="" selected disabled>Pilih Berberman</option>
-                                            <option value="">Berberman2</option>
+                                            @foreach ($data['barberman'] as $barberman)
+                                                <option value="{{ $barberman->id }}">{{ $barberman->name }}</option>
+                                            @endforeach
                                         </select>
                                         <label for="barberman_select">Berberman</label>
                                     </div>
@@ -79,7 +85,13 @@
                                         <select type="text" class="form-control bg-transparent" id="schedule_select"
                                             name="schedule_select">
                                             <option value="" selected disabled>Pilih Jadwal</option>
-                                            <option value="">Schedule2</option>
+                                            @foreach ($data['schedule'] as $schedule)
+                                                <option value="{{ $schedule->id }}">
+                                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d', $schedule->schedule_date)->format('d M Y') }}
+                                                    ({{ "$schedule->start_time - $schedule->end_time" }})
+                                                </option>
+                                                </option>
+                                            @endforeach
                                         </select>
                                         <label for="schedule_select">Schedule</label>
                                     </div>
