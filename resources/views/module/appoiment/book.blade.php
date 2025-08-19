@@ -73,9 +73,6 @@
                                         <select type="text" class="form-control bg-transparent" id="barberman_select"
                                             name="barberman_select">
                                             <option value="" selected disabled>Pilih Berberman</option>
-                                            @foreach ($data['barberman'] as $barberman)
-                                                <option value="{{ $barberman->id }}">{{ $barberman->name }}</option>
-                                            @endforeach
                                         </select>
                                         <label for="barberman_select">Berberman</label>
                                     </div>
@@ -85,12 +82,6 @@
                                         <select type="text" class="form-control bg-transparent" id="schedule_select"
                                             name="schedule_select">
                                             <option value="" selected disabled>Pilih Jadwal</option>
-                                            @foreach ($data['schedule'] as $schedule)
-                                                <option value="{{ $schedule->id }}">
-                                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d', $schedule->schedule_date)->format('d M Y') }}
-                                                    ({{ "$schedule->start_time - $schedule->end_time" }})
-                                                </option>
-                                            @endforeach
                                         </select>
                                         <label for="schedule_select">Schedule</label>
                                     </div>
@@ -136,3 +127,51 @@
     </div>
     <!-- Service End -->
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let barberman_select = document.getElementById('barberman_select')
+            let schedule_select = document.getElementById('schedule_select')
+
+            //load barberman
+            axios.get("{{ route('Appoiment.get_barberman') }}")
+                .then(res => {
+                    console.log(res.data)
+                    res.data.forEach(barberman => {
+                        let option = document.createElement('option')
+                        option.value = barberman.id
+                        option.textContent = barberman.name
+                        barberman_select.appendChild(option)
+                    })
+                })
+
+            //event listener: ketika di pilih barbermannya maka akan menampilkan jadwalnya berdasarkan dari id barberman
+            barberman_select.addEventListener("change", function() {
+                let barberman_id = this.value
+
+                //reset schedule
+                schedule_select.innerHTML = '<option value="" selected disabled>Pilih Jadwal</option>'
+                if (barberman_id) {
+                    //query schedule base on dari barberman
+                    let url = "{{ route('Appoiment.get_schedule_by_barberman', ':id') }}".replace(':id',
+                        barberman_id)
+
+                    axios.get(url)
+                        .then(res => {
+                            console.log(res.data)
+                            res.data.forEach(schedule => {
+                                let option = document.createElement('option')
+                                option.value = schedule.id
+                                option.textContent = schedule.schedule_date
+                                schedule_select.appendChild(option)
+                            })
+                        })
+                }
+
+            })
+        })
+    </script>
+@endpush
