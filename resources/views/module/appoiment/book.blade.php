@@ -132,6 +132,12 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            return `${months[date.getMonth()]} ${String(date.getDate()).padStart(2, '0')} ${date.getFullYear()}`;
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             let barberman_select = document.getElementById('barberman_select')
             let schedule_select = document.getElementById('schedule_select')
@@ -165,7 +171,8 @@
                             res.data.forEach(schedule => {
                                 let option = document.createElement('option')
                                 option.value = schedule.id
-                                option.textContent = schedule.schedule_date
+                                option.textContent =
+                                    `${formatDate(schedule.schedule_date)} | ${schedule.start_time} - ${schedule.end_time}`
                                 schedule_select.appendChild(option)
                             })
                         })
