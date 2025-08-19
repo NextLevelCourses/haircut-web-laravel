@@ -90,7 +90,6 @@
                                                     {{ \Carbon\Carbon::createFromFormat('Y-m-d', $schedule->schedule_date)->format('d M Y') }}
                                                     ({{ "$schedule->start_time - $schedule->end_time" }})
                                                 </option>
-                                                </option>
                                             @endforeach
                                         </select>
                                         <label for="schedule_select">Schedule</label>

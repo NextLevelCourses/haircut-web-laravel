@@ -25,6 +25,12 @@ class ServiceSeeder extends Seeder
                 'description' => 'Layanan cukur jenggot untuk pria',
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'name' => 'Smoothing',
+                'description' => 'Layanan smooting pria dan wanita',
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
     }

@@ -25,9 +25,9 @@ class ScheduleBabermanSeeder extends Seeder
             ],
             [
                 'barbermans_id' => 2,
-                'schedule_date' => Carbon::now()->format('Y-m-d'),
-                'start_time' => Carbon::now()->format('H:i:s'),
-                'end_time' => Carbon::now()->format('H:i:s'),
+                'schedule_date' => Carbon::now()->timezone('Asia/Makassar')->format('Y-m-d'),
+                'start_time' => Carbon::now()->timezone('Asia/Makassar')->format('H:i:s'),
+                'end_time' => Carbon::now()->timezone('Asia/Makassar')->format('H:i:s'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
