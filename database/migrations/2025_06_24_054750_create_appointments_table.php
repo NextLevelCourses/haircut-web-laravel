@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('schedules_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->foreignId('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('reference_code')->unique();
-            $table->enum('transaction_type', ['order', 'refund']);
+            $table->enum('transaction_type', ['order', 'refund'])->default('order');
             $table->enum('transaction_status', ['pending', 'failed', 'cancel', 'paid', 'completed'])->default('pending');
             $table->integer('amount')->default(0);
             $table->enum('transaction_method', ['cash', 'e-wallet', 'bank_transfer']);

@@ -2,18 +2,28 @@
 
 namespace App\Module\Appoiment\Handler;
 
-use Illuminate\Support\Facades\DB;
+use Throwable;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Module\Appoiment\Domain\Appoiment_domain;
 use App\Module\Appoiment\Interface\Appoiment_interface;
-use Illuminate\Support\Str;
-use Throwable;
 
 require base_path('app/Module/Appoiment/Usecase/Appoiment_usecase.php'); //usecase
+require base_path('app/Module/Appoiment/Constant/Appoiment_constant.php'); //constant
 
 
 class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
 {
+    public function __construct(
+        private Request $request
+    ) {}
+
+    public function HandlerValidateForm($request, array $rules, array $message): void
+    {
+        $request->validate($rules, $message);
+    }
+
     public function HandlerMapDataLanding(): array
     {
         return array(
@@ -49,6 +59,23 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
             return view('module.appoiment.book', compact('data'));
         } catch (\Throwable $e) {
             return $e;
+        }
+    }
+
+    /**
+     * Order an appointment.
+     * this method validate form of book appointment by users field
+     */
+    public function Order()
+    {
+        $this->HandlerValidateForm(
+            $this->request,
+            ORDER_RULES,
+            ORDER_MESSAGE
+        );
+        try {
+        } catch (\Throwable $t) {
+            return $t;
         }
     }
 }

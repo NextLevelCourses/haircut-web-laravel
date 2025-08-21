@@ -8,4 +8,5 @@ use Throwable;
 interface Appoiment_interface
 {
     public function View(): View|Throwable;
+    public function Order();
 }

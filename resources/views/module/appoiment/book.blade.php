@@ -41,48 +41,72 @@
                         <p class="mb-4">After field it then click order now button.
                             {{-- done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> --}}
                         </p>
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('Appoiment.order_book') }}">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select type="text" class="form-control bg-transparent" id="name"
-                                            name="name">
+                                        <select type="text"
+                                            class="form-control @error('services_id') is-invalid @enderror bg-transparent"
+                                            id="services_id" name="services_id">
                                             <option value="" selected disabled>Pilih Layanan</option>
                                             @foreach ($data['service'] as $service)
                                                 <option value="{{ $service->id }}">{{ $service->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label for="name">Services</label>
+                                        @error('services_id')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                        <label for="services_select">Services</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select type="text" class="form-control bg-transparent" id="gender_select"
-                                            name="gender_select">
+                                        <select type="text"
+                                            class="form-control @error('genders_id') is-invalid @enderror bg-transparent"
+                                            id="genders_id" name="genders_id">
                                             <option value="" selected disabled>Pilih Jenis Kelamin</option>
                                             @foreach ($data['gender'] as $gender)
                                                 <option value="{{ $gender->id }}">{{ $gender->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label for="gender_select">Gender</label>
+                                        @error('genders_id')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                        <label for="genders_select">Gender</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select type="text" class="form-control bg-transparent" id="barberman_select"
-                                            name="barberman_select">
+                                        <select type="text"
+                                            class="form-control @error('barbermans_id') is-invalid @enderror bg-transparent"
+                                            id="barberman_select" name="barbermans_id">
                                             <option value="" selected disabled>Pilih Berberman</option>
                                         </select>
+                                        @error('barbermans_id')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                         <label for="barberman_select">Berberman</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select type="text" class="form-control bg-transparent" id="schedule_select"
-                                            name="schedule_select">
+                                        <select type="text"
+                                            class="form-control @error('schedules_id') is-invalid @enderror bg-transparent"
+                                            id="schedule_select" name="schedules_id">
                                             <option value="" selected disabled>Pilih Jadwal</option>
                                         </select>
+                                        @error('schedules_id')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                         <label for="schedule_select">Schedule</label>
                                     </div>
                                 </div>
@@ -97,8 +121,8 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Leave description here" id="description"
-                                            style="height: 100px" name="description"></textarea>
+                                        <textarea class="form-control @error('description') is-invalid @enderror bg-transparent"
+                                            placeholder="Leave description here" id="description" style="height: 100px" name="description"></textarea>
                                         @error('description')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
