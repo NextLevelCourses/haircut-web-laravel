@@ -20,12 +20,6 @@ function GetGendersCase(): array
     return !empty($genders) ? $genders : [];
 }
 
-function GetbarbermansCase(): array
-{
-    $barbermans = RepositoryGetBarbermans();
-    return !empty($barbermans) ? $barbermans : [];
-}
-
 function GetCodeReferenceCase(string $random_str): string
 {
     return "APT{$random_str}";

@@ -42,15 +42,6 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
         }
     }
 
-    public function HandlerGetBarberman(): array|Throwable
-    {
-        try {
-            return GetbarbermansCase();
-        } catch (\Throwable $t) {
-            return $t;
-        }
-    }
-
     public function HandlerGetScheduleByBarberman(int $barberman_id): array|Throwable
     {
         try {

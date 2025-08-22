@@ -18,11 +18,6 @@ function RepositoryGetGenders(): array
     return DB::select("SELECT * FROM genders");
 }
 
-function RepositoryGetBarbermans(): array
-{
-    return DB::select("SELECT * FROM barbermans");
-}
-
 function RepositoryGetSchedulesByBarberman(int $barberman_id): array
 {
     return DB::select("SELECT * FROM schedules WHERE barbermans_id = ?", [$barberman_id]);
