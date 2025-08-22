@@ -74,6 +74,7 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
             ORDER_MESSAGE
         );
         try {
+            dd($this->request->all());
         } catch (\Throwable $t) {
             return $t;
         }
