@@ -48,18 +48,15 @@
                                     <div class="form-floating">
                                         <select type="text"
                                             class="form-control @error('services_id') is-invalid @enderror bg-transparent"
-                                            id="services_id" name="services_id">
+                                            id="service_select" name="services_id">
                                             <option value="" selected disabled>Pilih Layanan</option>
-                                            @foreach ($data['service'] as $service)
-                                                <option value="{{ $service->id }}">{{ $service->name }}</option>
-                                            @endforeach
                                         </select>
                                         @error('services_id')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <label for="services_select">Services</label>
+                                        <label for="service_select">Services</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -163,20 +160,43 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
+            let service_select = document.getElementById('service_select')
             let barberman_select = document.getElementById('barberman_select')
             let schedule_select = document.getElementById('schedule_select')
 
-            //load barberman
-            axios.get("{{ route('Appoiment.get_barberman') }}")
+            //load all service
+            axios.get("{{ route('Appoiment.get_service') }}")
                 .then(res => {
-                    console.log(res.data)
-                    res.data.forEach(barberman => {
+                    res.data.forEach(service => {
                         let option = document.createElement('option')
-                        option.value = barberman.id
-                        option.textContent = barberman.name
-                        barberman_select.appendChild(option)
+                        option.value = service.id
+                        option.textContent = service.name
+                        service_select.appendChild(option)
                     })
                 })
+
+            //load barberman by service trigger
+            service_select.addEventListener("change", function() {
+                let service_id = this.value
+
+                //reset barberman
+                barberman_select.innerHTML = '<option value="" selected disabled>Pilih Barberman</option>'
+                schedule_select.innerHTML = '<option value="" selected disabled>Pilih Jadwal</option>'
+                if (service_id) {
+                    let url = "{{ route('Appoiment.get_barberman_by_service', ':id') }}".replace(':id',
+                        service_id)
+
+                    axios.get(url)
+                        .then(res => {
+                            res.data.forEach(barberman => {
+                                let option = document.createElement('option')
+                                option.value = barberman.id
+                                option.textContent = barberman.name
+                                barberman_select.appendChild(option)
+                            })
+                        })
+                }
+            })
 
             //event listener: ketika di pilih barbermannya maka akan menampilkan jadwalnya berdasarkan dari id barberman
             barberman_select.addEventListener("change", function() {
@@ -191,7 +211,6 @@
 
                     axios.get(url)
                         .then(res => {
-                            console.log(res.data)
                             res.data.forEach(schedule => {
                                 let option = document.createElement('option')
                                 option.value = schedule.id

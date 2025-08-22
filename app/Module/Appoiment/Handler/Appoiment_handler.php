@@ -29,9 +29,17 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
         return array(
             'about_us' => GetAboutUsCase(),
             'code_reference' => GetCodeReferenceCase(Str::random(5)),
-            "service" => GetServicesCase(),
             "gender" => GetGendersCase(),
         );
+    }
+
+    public function HandlerGetService(): array|Throwable
+    {
+        try {
+            return GetServicesCase();
+        } catch (\Throwable $t) {
+            return $t;
+        }
     }
 
     public function HandlerGetBarberman(): array|Throwable
@@ -47,6 +55,15 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
     {
         try {
             return GetSchedulesByBarbermanCase($barberman_id);
+        } catch (\Throwable $t) {
+            return $t;
+        }
+    }
+
+    public function HandlerGetBarbermanByService(int $service_id): array|Throwable
+    {
+        try {
+            return GetBarbermanByServiceCase($service_id);
         } catch (\Throwable $t) {
             return $t;
         }

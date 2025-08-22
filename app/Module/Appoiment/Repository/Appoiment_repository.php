@@ -27,3 +27,8 @@ function RepositoryGetSchedulesByBarberman(int $barberman_id): array
 {
     return DB::select("SELECT * FROM schedules WHERE barbermans_id = ?", [$barberman_id]);
 }
+
+function RepositoryGetBarbermanByService(int $service_id): array
+{
+    return DB::select("SELECT * FROM barbermans WHERE services_id = ?", [$service_id]);
+}

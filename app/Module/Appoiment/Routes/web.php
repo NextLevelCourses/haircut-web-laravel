@@ -14,4 +14,8 @@ Route::middleware(['auth:user', 'role.user'])->group(function () {
         Route::get('{barberman_id}/schedule', [Appoiment_handler::class, 'HandlerGetScheduleByBarberman'])
             ->name('Appoiment.get_schedule_by_barberman');
     });
+    Route::prefix('service')->group(function () {
+        Route::get('/', [Appoiment_handler::class, 'HandlerGetService'])->name('Appoiment.get_service');
+        Route::get('{service_id}/barberman', [Appoiment_handler::class, 'HandlerGetBarbermanByService'])->name('Appoiment.get_barberman_by_service');
+    });
 });

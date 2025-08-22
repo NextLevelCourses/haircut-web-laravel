@@ -36,3 +36,9 @@ function GetSchedulesByBarbermanCase(int $barberman_id): array
     $schedules = RepositoryGetSchedulesByBarberman($barberman_id);
     return !empty($schedules) ? $schedules : [];
 }
+
+function GetBarbermanByServiceCase(int $service_id): array
+{
+    $barberman_by_service = RepositoryGetBarbermanByService($service_id);
+    return !empty($barberman_by_service) ? $barberman_by_service : [];
+}
