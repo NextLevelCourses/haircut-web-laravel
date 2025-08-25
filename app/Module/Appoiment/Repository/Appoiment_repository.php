@@ -8,14 +8,24 @@ function RepositoryGetAboutUs(): array
     return DB::select("SELECT * FROM about_us");
 }
 
-function RepositoryGetServices(): array
+function RepositoryGetServices(int $id = 0): array
 {
-    return DB::select("SELECT * FROM services");
+    return $id != 0 ? DB::select("SELECT * FROM services WHERE id = ?", [$id]) : DB::select("SELECT * FROM services");
 }
 
-function RepositoryGetGenders(): array
+function RepositoryGetGenders(int $id = 0): array
 {
-    return DB::select("SELECT * FROM genders");
+    return $id != 0 ? DB::select("SELECT * FROM genders WHERE id = ?", [$id]) : DB::select("SELECT * FROM genders");
+}
+
+function RepositoryGetBarberman(int $id): array
+{
+    return DB::select("SELECT * FROM barbermans WHERE id = ?", [$id]);
+}
+
+function RepositoryGetSchedule(int $id): array
+{
+    return DB::select("SELECT * FROM schedules WHERE id = ?", [$id]);
 }
 
 function RepositoryGetSchedulesByBarberman(int $barberman_id): array

@@ -46,32 +46,48 @@
                             <div class="col-6">{{ Auth::guard('user')->user()->no_hp }}</div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-6 fw-bold">Tanggal:</div>
-                            <div class="col-6">{{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}</div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-6 fw-bold">Jam:</div>
-                            <div class="col-6">{{ \Carbon\Carbon::now()->format('H:i:s') }}</div>
+                            <div class="col-6 fw-bold">Tanggal Booking:</div>
+                            <div class="col-6">
+                                {{ \Carbon\Carbon::parse($data['appoiment_schedule']->schedule_date)->format('d M Y') }}
+                            </div>
+                            <input type="text" name="appoiment_schedule_id" value="{{ $data['appoiment_schedule_id'] }}"
+                                hidden>
                         </div>
                         <div class="row mb-3">
                             <div class="col-6 fw-bold">Gender:</div>
-                            <div class="col-6">{{ $data['appoiment_gender_id'] }}</div>
+                            <div class="col-6">{{ $data['appoiment_gender_name'] }}</div>
+                            <input type="text" name="appoiment_gender_id" value="{{ $data['appoiment_gender_id'] }}"
+                                hidden>
                         </div>
                         <div class="row mb-3">
                             <div class="col-6 fw-bold">Service:</div>
-                            <div class="col-6">{{ $data['appoiment_service_id'] }}</div>
+                            <div class="col-6">{{ $data['appoiment_service_name'] }}</div>
+                            <input type="text" name="appoiment_service_id" value="{{ $data['appoiment_service_id'] }}"
+                                hidden>
                         </div>
                         <div class="row mb-3">
                             <div class="col-6 fw-bold">Barberman:</div>
-                            <div class="col-6">{{ $data['appoiment_barberman_id'] }}</div>
+                            <div class="col-6">{{ $data['appoiment_barberman']->name }}</div>
+                            <input type="text" name="appoiment_barberman_id"
+                                value="{{ $data['appoiment_barberman_id'] }}" hidden>
                         </div>
                         <div class="row mb-3">
                             <div class="col-6 fw-bold">Code Reference:</div>
                             <div class="col-6">{{ $data['appoiment_code_reference'] }}</div>
+                            <input type="text" name="appoiment_code_reference"
+                                value="{{ $data['appoiment_code_reference'] }}" hidden>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6 fw-bold">Description:</div>
+                            <div class="col-6">{{ $data['appoiment_description'] }}</div>
+                            <input type="text" name="appoiment_description" value="{{ $data['appoiment_description'] }}"
+                                hidden>
                         </div>
                         <div class="row mb-3">
                             <div class="col-6 fw-bold">Harga:</div>
-                            <div class="col-6">Rp150.000</div>
+                            <div class="col-6">{{ $data['appoiment_barberman']->price }}</div>
+                            <input type="text" name="appoiment_amount" value="{{ $data['appoiment_barberman']->price }}"
+                                hidden>
                         </div>
 
                         <!-- Metode Pembayaran -->

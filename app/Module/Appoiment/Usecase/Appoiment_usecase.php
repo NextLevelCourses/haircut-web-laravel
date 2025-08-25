@@ -8,16 +8,34 @@ function GetAboutUsCase(): array
     return !empty($about_us) ? $about_us : [];
 }
 
-function GetServicesCase(): array
+function GetServicesCase(int $id = 0): array
 {
-    $services = RepositoryGetServices();
+    if ($id != 0) {
+        $services = RepositoryGetServices($id); //get by id
+    } else {
+        $services = RepositoryGetServices(); //get all
+    }
     return !empty($services) ? $services : [];
 }
 
-function GetGendersCase(): array
+function GetGendersCase(int $id = 0): array
 {
-    $genders = RepositoryGetGenders();
+    if ($id != 0) {
+        $genders = RepositoryGetGenders($id); //get by id
+    } else {
+        $genders = RepositoryGetGenders(); // get all
+    }
     return !empty($genders) ? $genders : [];
+}
+
+function GetBarbermanCase(int $id): array
+{
+    return !empty(RepositoryGetBarberman($id)) ? RepositoryGetBarberman($id) : [];
+}
+
+function GetScheduleCase(int $id): array
+{
+    return !empty(RepositoryGetSchedule($id)) ? RepositoryGetSchedule($id) : [];
 }
 
 function GetCodeReferenceCase(string $random_str): string
