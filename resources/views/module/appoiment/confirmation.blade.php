@@ -85,7 +85,9 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-6 fw-bold">Harga:</div>
-                            <div class="col-6">{{ $data['appoiment_barberman']->price }}</div>
+                            <div class="col-6">
+                                {{ 'Rp.' . number_format($data['appoiment_barberman']->price, 0, ',', '.') }}
+                            </div>
                             <input type="text" name="appoiment_amount" value="{{ $data['appoiment_barberman']->price }}"
                                 hidden>
                         </div>
