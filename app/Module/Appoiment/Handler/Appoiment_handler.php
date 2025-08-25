@@ -41,10 +41,10 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
             "appoiment_gender_name"     => GetGendersCase($request->genders_id ?? 0)[0]->name ?? null,
             //barberman
             "appoiment_barberman_id"    => $request->barbermans_id ?? null,
-            "appoiment_barberman"     => GetBarbermanCase($request->barbermans_id ?? 0)[0] ?? null,
+            "appoiment_barberman"       => GetBarbermanCase($request->barbermans_id ?? 0)[0] ?? null,
             //schedule
             "appoiment_schedule_id"     => $request->schedules_id ?? null,
-            "appoiment_schedule"     => GetScheduleCase($request->schedules_id ?? 0)[0] ?? null,
+            "appoiment_schedule"        => GetScheduleCase($request->schedules_id ?? 0)[0] ?? null,
             //code reference
             "appoiment_code_reference"  => $request->code_reference ?? null,
             //description
