@@ -19,7 +19,7 @@ Route::prefix('contact')->group(function () {
 
 // Route::middleware(['auth:user', 'role.user'])->group(function () {
 //     // Route::get('/service', [Landing_handler::class, 'Service'])->name('Landing.service');
-//     Route::get('/invoice', [Landing_handler::class, 'Invoice'])->name('Landing.invoice');
+Route::get('/invoice', [Landing_handler::class, 'Invoice'])->name('Landing.invoice');
 //     // Route::get('/gender', [Landing_handler::class, 'Gender'])->name('Landing.gender');
 //     // Route::get('/barberman', [Landing_handler::class, 'Barberman'])->name('Landing.barberman');
 //     // Route::get('/schedule', [Landing_handler::class, 'Schedule'])->name('Landing.schedule');

@@ -41,7 +41,7 @@
                         <p class="mb-4">After field it then click order now button.
                             {{-- done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> --}}
                         </p>
-                        <form method="POST" action="{{ route('Appoiment.order_book') }}">
+                        <form method="POST" action="{{ route('Appoiment.order_confirmation_book') }}">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">

@@ -24,12 +24,21 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
         $request->validate($rules, $message);
     }
 
-    public function HandlerMapDataLanding(): array
+    public function HandlerMapDataAppoiment(Request $request): array
     {
         return array(
-            'about_us' => GetAboutUsCase(),
-            'code_reference' => GetCodeReferenceCase(Str::random(5)),
-            "gender" => GetGendersCase(),
+            'about_us'        => GetAboutUsCase(),
+            'code_reference'  => GetCodeReferenceCase(Str::random(5)),
+            "gender"          => GetGendersCase(),
+            /**
+             * appoiment data: service,gender,barberman,schedule,reference code,description
+             */
+            "appoiment_service_id"      => $request->services_id,
+            "appoiment_gender_id"       => $request->genders_id,
+            "appoiment_barberman_id"    => $request->barbermans_id,
+            "appoiment_schedule_id"     => $request->schedules_id,
+            "appoiment_code_reference"  => $request->code_reference,
+            "appoiment_description"     => $request->description,
         );
     }
 
@@ -63,7 +72,7 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
     public function View(): View|Throwable
     {
         try {
-            $data = $this->HandlerMapDataLanding();
+            $data = $this->HandlerMapDataAppoiment($this->request);
             return view('module.appoiment.book', compact('data'));
         } catch (\Throwable $e) {
             return $e;
@@ -74,7 +83,7 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
      * Order an appointment.
      * this method validate form of book appointment by users field
      */
-    public function Order()
+    public function ConfirmationOrder(): View|Throwable
     {
         $this->HandlerValidateForm(
             $this->request,
@@ -82,7 +91,8 @@ class Appoiment_handler extends Appoiment_domain implements Appoiment_interface
             ORDER_MESSAGE
         );
         try {
-            dd($this->request->all());
+            $data = $this->HandlerMapDataAppoiment($this->request);
+            return view('module.appoiment.confirmation', compact('data'));
         } catch (\Throwable $t) {
             return $t;
         }
