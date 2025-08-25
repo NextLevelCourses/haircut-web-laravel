@@ -129,8 +129,9 @@
 @push('scripts')
     <script type="text/javascript">
         document.getElementById("confirmBtnCancel").addEventListener("click", function() {
-            alert("Apakah anda ingin membatalkan pesanan ?")
-            window.location.href = "{{ route('Appoiment.view_book') }}"
+            if (confirm("Apakah anda ingin membatalkan pesanan ?")) {
+                window.location.href = "{{ route('Appoiment.view_book') }}"
+            }
         })
     </script>
 @endpush
