@@ -74,7 +74,7 @@
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <label for="genders_select">Gender</label>
+                                        <label id="genders_id">Gender</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -89,7 +89,7 @@
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <label for="barberman_select">Berberman</label>
+                                        <label id="barbermans_id">Berberman</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -104,7 +104,7 @@
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <label for="schedule_select">Schedule</label>
+                                        <label id="schedules_id">Schedule</label>
                                     </div>
                                 </div>
 
@@ -113,7 +113,7 @@
                                         <input type="text" class="form-control  bg-transparent" id="reference_code"
                                             name="code_reference" placeholder="Reference Code"
                                             value="{{ $data['code_reference'] }}" readonly>
-                                        <label for="reference_code">Reference Code</label>
+                                        <label id="code_reference">Reference Code</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -125,7 +125,7 @@
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        <label for="description">Description</label>
+                                        <label id="description">Description</label>
                                     </div>
                                 </div>
                                 <div class="col-12">

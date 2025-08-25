@@ -112,8 +112,9 @@
 
                     <!-- Button Konfirmasi -->
                     <div class="text-center">
-                        <button id="confirmBtn" class="btn btn-primary px-5 py-2 text-uppercase">Konfirmasi Booking</button>
-                        <button id="confirmBtn" class="btn btn-primary px-5 py-2 text-uppercase">Cancel</button>
+                        <button id="confirmBtnOrder" class="btn btn-primary px-5 py-2 text-uppercase">Konfirmasi
+                            Booking</button>
+                        <button id="confirmBtnCancel" class="btn btn-primary px-5 py-2 text-uppercase">Cancel</button>
                     </div>
 
                     <!-- Pesan sukses/gagal -->
@@ -124,3 +125,12 @@
     </div>
     <!-- Konfirmasi Booking End -->
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        document.getElementById("confirmBtnCancel").addEventListener("click", function() {
+            alert("Apakah anda ingin membatalkan pesanan ?")
+            window.location.href = "{{ route('Appoiment.view_book') }}"
+        })
+    </script>
+@endpush
